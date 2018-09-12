@@ -6,12 +6,17 @@ react实现个人博客
 #### 软件架构
 软件架构说明
 
+安装的依赖有:
+1、styled-components 
+地址：https://www.styled-components.com/
+安装：npm install --save styled-components
 
-#### 安装教程
 
-1. xxxx
-2. xxxx
-3. xxxx
+
+#### 安装运行
+
+1. npm install
+2. npm start
 
 #### 使用说明
 
