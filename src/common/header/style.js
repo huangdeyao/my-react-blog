@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import logoPic from '../../statics/logo.png';
+import anIcon from '../../statics/anonymous.jpg';
 
 export const AppHeader = styled.div`
     position: relative;
-    z-index: 100;
     height: 52px;
+    z-index: 1;
     background: #fff;
     min-width: 1032px;
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
@@ -12,45 +13,52 @@ export const AppHeader = styled.div`
 `;
 
 export const AppHeaderInner = styled.div`
-    display: flex;
+    position: relative;
     width: 1000px;
-    padding: 0 16px;
     margin: 0 auto;
     align-items: center;
 	box-sizing: border-box;
+	color: #8590a6;
+    .left {
+       float: left;
+     }
+    .right {
+       float: right;
+       color: #969696;
+     }
+    .active {
+       color: #444;
+      }
 `;
 
 export const NavItem = styled.div`
-	line-height: 56px;
-	padding: 0 15px;
-	font-size: 17px;
-	color: #333;
-	&.left {
-		float: left;
-	}
-	&.right {
-		float: right;
-		color: #969696;
-	}
-	&.active {
-		color: #ea6f5a;
-	}
+    line-height: 56px;
+    padding: 0 15px;
+    font-size: 17px;
+    cursor: pointer;
 `;
 
-export const Logo = styled.a`
-	position: relative;
-	top: 0;
-	left: 0;
+export const Logo = styled.div`
 	display: block;
 	width: 100px;
 	height: 52px;
-	background: url(${logoPic});
+	background: url(${logoPic}) no-repeat;
 	background-size: contain;
+	cursor: pointer;
+`;
+
+export const AnIcon = styled.div`
+    margin-top: 12px;
+    width: 30px;
+    height: 30px;
+	background: url(${anIcon}) no-repeat;
+	cursor: pointer;
 `;
 
 export const SearchWrapper = styled.div`
-	position: relative;
+    position: relative;
 	float: left;
+	margin-top: 7px
 	.zoom {
 		position: absolute;
 		right: 5px;
