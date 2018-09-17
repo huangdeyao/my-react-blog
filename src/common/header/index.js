@@ -1,20 +1,36 @@
 import React, {Component} from 'react'
-import {AppHeader, AppHeaderInner, Logo, NavItem, SearchWrapper, NavSearch, AnIcon} from "./style";
+import {
+    AppHeader,
+    AppHeaderInner,
+    Logo,
+    AppHeaderNav,
+    AppHeaderNavItem,
+    SearchWrapper,
+    NavSearch,
+    AppHeaderUserInfo,
+    NavItem,
+    AppHeaderProfileEntry
+} from "./style";
 
 class Index extends Component {
     render() {
         return (
             <AppHeader>
                 <AppHeaderInner>
-                    <Logo className='left'/>
-                    <NavItem className='left active'>首页</NavItem>
-                    <NavItem className='left'>发现</NavItem>
-                    <NavItem className='left'>话题</NavItem>
+                    <Logo/>
+                    <AppHeaderNav>
+                        <AppHeaderNavItem className='active'>首页</AppHeaderNavItem>
+                        <AppHeaderNavItem className='nav'>发现</AppHeaderNavItem>
+                        <AppHeaderNavItem className='nav'>话题</AppHeaderNavItem>
+                    </AppHeaderNav>
                     <SearchWrapper>
                         <NavSearch/>
                     </SearchWrapper>
-                    <AnIcon className='right'/>
-                    <NavItem className='right'> <i className="iconfont">&#xe623;</i></NavItem>
+                    <AppHeaderUserInfo>
+                        <NavItem><i className="iconfont">&#xe6d6;</i></NavItem>
+                        <NavItem><i className="iconfont">&#xe60a;</i></NavItem>
+                        <AppHeaderProfileEntry/>
+                    </AppHeaderUserInfo>
                 </AppHeaderInner>
             </AppHeader>
         )
