@@ -27,7 +27,9 @@ injectGlobal`
 		display: block;
 	}
 	body {
+	    color:#1a1a1a;
 		line-height: 1;
+		background: #f6f6f6;
 	}
 	ol, ul {
 		list-style: none;

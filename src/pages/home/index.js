@@ -1,14 +1,42 @@
 import React, {Component} from 'react'
 import {
-    HomePage, TipYour, Image
+    AppMain,
+    TopstoryContainer,
+    TopstoryMainColumn,
+    Card,
+    TopstoryHeader,
+    GlobalSideBar,
+    TopstoryHeaderNav,
+    TopstoryHeaderNavItem,
+    TopstoryHeaderRightItem,
+    TopstoryMain,
+    TopstoryItem
 } from "./style";
 
 class Index extends Component {
     render() {
         return (
-            <HomePage>
-                <TipYour><Image/></TipYour>
-            </HomePage>
+            <AppMain>
+                <TopstoryContainer>
+                    <TopstoryMainColumn>
+                        <Card>
+                            <TopstoryHeader>
+                                <TopstoryHeaderNav>
+                                    <TopstoryHeaderNavItem><i className="iconfont">&#xe695;</i>提问</TopstoryHeaderNavItem>
+                                    <TopstoryHeaderNavItem><i className="iconfont">&#xe7a0;</i>问答</TopstoryHeaderNavItem>
+                                    <TopstoryHeaderNavItem><i className="iconfont">&#xe65e;</i>写文章</TopstoryHeaderNavItem>
+                                    <TopstoryHeaderNavItem><i className="iconfont">&#xe610;</i>写想法</TopstoryHeaderNavItem>
+                                </TopstoryHeaderNav>
+                                <TopstoryHeaderRightItem>草稿</TopstoryHeaderRightItem>
+                            </TopstoryHeader>
+                        </Card>
+                        <TopstoryMain>
+                                <TopstoryItem>123</TopstoryItem>
+                        </TopstoryMain>
+                        <GlobalSideBar></GlobalSideBar>
+                    </TopstoryMainColumn>
+                </TopstoryContainer>
+            </AppMain>
         )
     }
 }
