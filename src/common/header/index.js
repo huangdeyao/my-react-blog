@@ -25,6 +25,7 @@ class Index extends Component {
                     </AppHeaderNav>
                     <SearchWrapper>
                         <NavSearch/>
+                        <i className="iconfont">&#xe614;</i>
                     </SearchWrapper>
                     <AppHeaderUserInfo>
                         <NavItem><i className="iconfont">&#xe6d6;</i></NavItem>
