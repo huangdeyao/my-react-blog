@@ -9,8 +9,7 @@ import {
     TopstoryHeaderNav,
     TopstoryHeaderNavItem,
     TopstoryHeaderRightItem,
-    TopstoryMain,
-    TopstoryItem
+    TopstoryV2Content
 } from "./style";
 
 class Index extends Component {
@@ -22,17 +21,20 @@ class Index extends Component {
                         <Card>
                             <TopstoryHeader>
                                 <TopstoryHeaderNav>
-                                    <TopstoryHeaderNavItem><i className="iconfont">&#xe695;</i>提问</TopstoryHeaderNavItem>
-                                    <TopstoryHeaderNavItem><i className="iconfont">&#xe7a0;</i>问答</TopstoryHeaderNavItem>
-                                    <TopstoryHeaderNavItem><i className="iconfont">&#xe65e;</i>写文章</TopstoryHeaderNavItem>
-                                    <TopstoryHeaderNavItem><i className="iconfont">&#xe610;</i>写想法</TopstoryHeaderNavItem>
+                                    <TopstoryHeaderNavItem><i
+                                        className="iconfont">&#xe695;</i>提问</TopstoryHeaderNavItem>
+                                    <TopstoryHeaderNavItem><i
+                                        className="iconfont">&#xe7a0;</i>问答</TopstoryHeaderNavItem>
+                                    <TopstoryHeaderNavItem><i
+                                        className="iconfont">&#xe65e;</i>写文章</TopstoryHeaderNavItem>
+                                    <TopstoryHeaderNavItem><i
+                                        className="iconfont">&#xe610;</i>写想法</TopstoryHeaderNavItem>
                                 </TopstoryHeaderNav>
                                 <TopstoryHeaderRightItem>草稿</TopstoryHeaderRightItem>
                             </TopstoryHeader>
                         </Card>
-                        <TopstoryMain>
-                                <TopstoryItem>123</TopstoryItem>
-                        </TopstoryMain>
+                            <TopstoryV2Content>
+                            </TopstoryV2Content>
                         <GlobalSideBar></GlobalSideBar>
                     </TopstoryMainColumn>
                 </TopstoryContainer>

@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
-import Header from './common/header'
-import HomePage from './pages/home'
+import {Provider} from 'react-redux';
+import store from './store';
+import Header from './common/header';
+import HomePage from './pages/home';
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <Header/>
-                <HomePage/>
-            </div>
+            <Provider store={store}>
+                <div>
+                    <Header/>
+                    <HomePage/>
+                </div>
+            </Provider>
         );
     }
 }

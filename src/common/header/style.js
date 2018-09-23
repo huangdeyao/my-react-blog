@@ -29,7 +29,7 @@ export const AppHeaderInner = styled.div`
     transition: transform .3s,-webkit-transform .3s;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.div.attrs({href: '/'})`
 	display: block;
 	width: 100px;
 	height: 52px;
@@ -79,8 +79,9 @@ export const SearchWrapper = styled.div`
 		border-radius: 15px;
 		text-align: center;
 		&.focused {
-			background: #777;
+			background: #0084ff;
 			color: #fff;
+			cursor: pointer;
 		}
 	}
 `;
@@ -103,13 +104,13 @@ export const NavSearch = styled.input.attrs({
 		color: #999;
 	}
 	&.focused {
-		width: 240px;
+		width: 280px;
 	}
 	&.slide-enter {
 		transition: all .2s ease-out;
 	}
 	&.slide-enter-active {
-		width: 240px;
+		width: 280px;
 	}
 	&.slide-exit {
 		transition: all .2s ease-out;

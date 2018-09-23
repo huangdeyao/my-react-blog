@@ -11,7 +11,13 @@ react实现个人博客
 地址：https://www.styled-components.com/
 安装：npm install --save styled-components
 
-
+npm install react-transition-group
+npm install redux
+npm install react-redux
+npm install immutable
+npm install redux-immutable
+npm install redux-thunk
+npm install axios
 
 #### 安装运行
 

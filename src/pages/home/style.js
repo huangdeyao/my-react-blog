@@ -72,8 +72,25 @@ export const TopstoryHeaderRightItem = styled.div`
 export const TopstoryMain = styled.div`
     width: 694px;
     padding-bottom: 20px;
+    background: #fff;
 `;
-export const TopstoryItem = styled.div`
+
+
+export const TopstoryMainColumnCard = styled.div`
+    margin-bottom: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #f0f2f7;
+
+`;
+
+
+export const TabItem = styled.div`
+   display: inline-block;
+   padding: 0 20px;
+`;
+
+
+export const TopstoryV2Content = styled.div`
     width: 694px;
     padding-bottom: 20px;
     margin-bottom: 10px;
