@@ -103,6 +103,25 @@ export const TopstoryV2Content = styled.div`
     padding: 16px 20px;
 `;
 
+export const NoteItem = styled.div`
+    position: relative;
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 15px 2px 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+    word-wrap: break-word;
+`;
+
+export const NoteItemImg = styled.div`
+	background: url(${image}) no-repeat;
+    position: absolute;
+    top: 50%;
+    margin-top: -60px;
+    right: 0;
+    width: 125px;
+    height: 100px;
+`;
+
 export const GlobalSideBar = styled.div`
     width: 694px;
     padding-bottom: 20px;

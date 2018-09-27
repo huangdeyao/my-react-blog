@@ -9,7 +9,9 @@ import {
     TopstoryHeaderNav,
     TopstoryHeaderNavItem,
     TopstoryHeaderRightItem,
-    TopstoryV2Content
+    TopstoryV2Content,
+    NoteItem,
+    NoteItemImg
 } from "./style";
 
 class Index extends Component {
@@ -33,8 +35,11 @@ class Index extends Component {
                                 <TopstoryHeaderRightItem>草稿</TopstoryHeaderRightItem>
                             </TopstoryHeader>
                         </Card>
-                            <TopstoryV2Content>
-                            </TopstoryV2Content>
+                        <TopstoryV2Content>
+                            <NoteItem>
+                                <NoteItemImg/>
+                            </NoteItem>
+                        </TopstoryV2Content>
                         <GlobalSideBar></GlobalSideBar>
                     </TopstoryMainColumn>
                 </TopstoryContainer>
