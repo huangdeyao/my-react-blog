@@ -29,7 +29,7 @@ export const AppHeaderInner = styled.div`
     transition: transform .3s,-webkit-transform .3s;
 `;
 
-export const Logo = styled.div.attrs({href: '/'})`
+export const Logo = styled.div`
 	display: block;
 	width: 100px;
 	height: 52px;

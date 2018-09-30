@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {CSSTransition} from 'react-transition-group';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {actionCreators} from './store';
 import {
     AppHeader,
@@ -20,7 +21,9 @@ class Index extends Component {
         return (
             <AppHeader>
                 <AppHeaderInner>
-                    <Logo/>
+                    <Link to='/'>
+                        <Logo/>
+                    </Link>
                     <AppHeaderNav>
                         <AppHeaderNavItem className='active'>首页</AppHeaderNavItem>
                         <AppHeaderNavItem className='nav'>发现</AppHeaderNavItem>
