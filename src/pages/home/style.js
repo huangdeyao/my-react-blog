@@ -1,38 +1,32 @@
 import styled from 'styled-components';
-import image from '../../statics/timg.gif';
 
-export const AppMain = styled.div`
-    display: block;
-`;
-
-export const TopstoryContainer = styled.div`
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    position: relative;
+export const HomeWrapper = styled.div`
     width: 1000px;
-    padding: 0 16px;
-    margin: 10px auto;
+    margin: 0 auto;
+    height: 300px;
 `;
 
-export const TopstoryMainColumn = styled.div`
-     margin-right: 10px;
+export const HomeLeft = styled.div`
+    float: left;
+    width: 694px;
 `;
 
-export const Card = styled.div`
+
+export const HomeRight = styled.div`
+    width: 280px;
+    float: right;
+`;
+
+
+export const TopicWrapper = styled.div`
+    margin-top:10px;
     margin-bottom: 10px;
     background: #fff;
     overflow: hidden;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
     box-sizing: border-box;
-`;
-
-export const TopstoryHeader = styled.div`
-     display: -webkit-box;
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
@@ -42,8 +36,15 @@ export const TopstoryHeader = styled.div`
     padding: 0 20px;
 `;
 
+export const TopstoryHeaderRightItem = styled.div`
+    color: #8590a6;
+    font-size: 14px;
+    transition: color .2s ease-in;
+    cursor: pointer;
+`;
+
 export const TopstoryHeaderNav = styled.div`
-        display: block;
+    display: block;
 `;
 export const TopstoryHeaderNavItem = styled.div`
     display: inline-block;
@@ -62,82 +63,62 @@ export const TopstoryHeaderNavItem = styled.div`
         margin-right: 5px;
     }
 `;
-export const TopstoryHeaderRightItem = styled.div`
-    color: #8590a6;
-    font-size: 14px;
-    transition: color .2s ease-in;
-    cursor: pointer;
-`;
 
-export const TopstoryMain = styled.div`
-    width: 694px;
-    padding-bottom: 20px;
-    background: #fff;
-`;
-
-
-export const TopstoryMainColumnCard = styled.div`
-    margin-bottom: 0;
-    box-shadow: none;
-    border-bottom: 1px solid #f0f2f7;
-
-`;
-
-
-export const TabItem = styled.div`
-   display: inline-block;
-   padding: 0 20px;
-`;
-
-
-export const TopstoryV2Content = styled.div`
-    width: 694px;
-    padding-bottom: 20px;
-    margin-bottom: 10px;
+export const ListItem = styled.div`
+    padding: 20px;
     background: #fff;
     overflow: hidden;
-    border-radius: 2px;
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
-    box-sizing: border-box;
-    position: relative;
-    padding: 16px 20px;
+    border-bottom: 1px solid #f0f2f7;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    .pic {
+        display: block;
+        width: 125px;
+        height: 100px;
+        border-radius: 10px;
+    }
 `;
 
-export const NoteItem = styled.div`
-    position: relative;
+export const ListInfo = styled.div`
+    width: 520px;
+    .title {
+        line-height: 27px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333
+    }
+    .desc {
+        line-height: 24px;
+        font-size: 13px;
+        color: #999;
+    }
+`;
+
+export const RecommendWrapper = styled.div`
+    margin: 30px 0;
+    width: 280px;
+`;
+
+export const RecommendItem = styled.div`
+    width: 280px;
+    height: 50px;
+    background: url(${(props) => props.imgUrl});
+    background-size: contain;
+`;
+
+export const LoadMore = styled.div`
     width: 100%;
-    margin: 0 0 15px;
-    padding: 15px 2px 20px 0;
-    border-bottom: 1px solid #f0f0f0;
-    word-wrap: break-word;
-`;
-
-export const NoteItemImg = styled.div`
-	background: url(${image}) no-repeat;
-    position: absolute;
-    top: 50%;
-    margin-top: -60px;
-    right: 0;
-    width: 125px;
-    height: 100px;
-`;
-
-export const GlobalSideBar = styled.div`
-    width: 694px;
-    padding-bottom: 20px;
-`;
-
-export const Image = styled.image`
-    justify-content: center;
-	background: url(${image}) no-repeat;
-	background-size: contain;
-	align-items: center;
-	position: relative;
-    width: 1000px;
-    height: 52px;
-    padding: 0 16px;
-    margin: 0 auto;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    height: 40px;
+    line-height: 40px;
+    background: #a5a5a5;
+    text-align: center;
+    border-radius: 20px;
+    margin: 30px 0;
+    color: #fff;
+    cursor: pointer;
 `;

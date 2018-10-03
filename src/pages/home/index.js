@@ -1,51 +1,41 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import List from './common/List';
+import Recommend from './common/Recommend';
+import Topic from './common/Topic';
+import Writer from './common/Writer';
+import {actionCreators} from './store';
+import {connect} from 'react-redux';
 import {
-    AppMain,
-    TopstoryContainer,
-    TopstoryMainColumn,
-    Card,
-    TopstoryHeader,
-    GlobalSideBar,
-    TopstoryHeaderNav,
-    TopstoryHeaderNavItem,
-    TopstoryHeaderRightItem,
-    TopstoryV2Content,
-    NoteItem,
-    NoteItemImg
+    HomeWrapper,
+    HomeLeft,
+    HomeRight
 } from "./style";
 
 class Index extends Component {
     render() {
         return (
-            <AppMain>
-                <TopstoryContainer>
-                    <TopstoryMainColumn>
-                        <Card>
-                            <TopstoryHeader>
-                                <TopstoryHeaderNav>
-                                    <TopstoryHeaderNavItem><i
-                                        className="iconfont">&#xe695;</i>提问</TopstoryHeaderNavItem>
-                                    <TopstoryHeaderNavItem><i
-                                        className="iconfont">&#xe7a0;</i>问答</TopstoryHeaderNavItem>
-                                    <TopstoryHeaderNavItem><i
-                                        className="iconfont">&#xe65e;</i>写文章</TopstoryHeaderNavItem>
-                                    <TopstoryHeaderNavItem><i
-                                        className="iconfont">&#xe610;</i>写想法</TopstoryHeaderNavItem>
-                                </TopstoryHeaderNav>
-                                <TopstoryHeaderRightItem>草稿</TopstoryHeaderRightItem>
-                            </TopstoryHeader>
-                        </Card>
-                        <TopstoryV2Content>
-                            <NoteItem>
-                                <NoteItemImg/>
-                            </NoteItem>
-                        </TopstoryV2Content>
-                        <GlobalSideBar></GlobalSideBar>
-                    </TopstoryMainColumn>
-                </TopstoryContainer>
-            </AppMain>
+            <HomeWrapper>
+                <HomeLeft>
+                    <Topic/>
+                    <List/>
+                </HomeLeft>
+                <HomeRight>
+                    <Recommend/>
+                    <Writer/>
+                </HomeRight>
+            </HomeWrapper>
         )
+    }
+
+    componentDidMount() {
+        this.props.changeHomeData();
     }
 }
 
-export default Index;
+const mapDispatch = (dispatch) => ({
+    changeHomeData() {
+        dispatch(actionCreators.getHomeInfo())
+    }
+});
+
+export default connect(null, mapDispatch)(Index);

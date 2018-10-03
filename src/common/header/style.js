@@ -49,7 +49,7 @@ export const AppHeaderNav = styled.div`
     margin-right: 18px;
     color: #999;
     .active {
-       color: #444;
+       color: #0084ff;
        :hover{
            color:#0084ff!important;      
        }
