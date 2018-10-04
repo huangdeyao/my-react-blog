@@ -1,2 +1,3 @@
 export const CHANGE_HOME_DATA = 'home/CHANGE_HOME_DATA';
 export const ADD_ARTICLE_LSIT = 'home/ADD_ARTICLE_LSIT';
+export const TOGGLE_SCROLL_SHOW = 'home/TOGGLE_SCROLL_SHOW';

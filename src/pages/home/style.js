@@ -90,7 +90,8 @@ export const ListInfo = styled.div`
         line-height: 27px;
         font-size: 18px;
         font-weight: bold;
-        color: #333
+        color: #333;
+        cursor: pointer;
     }
     .desc {
         line-height: 24px;
@@ -121,4 +122,16 @@ export const LoadMore = styled.div`
     margin: 30px 0;
     color: #fff;
     cursor: pointer;
+`;
+
+export const BackTop = styled.div`
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    width: 60px;
+    height:　60px;
+    line-height: 60px;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 12px;
 `;
