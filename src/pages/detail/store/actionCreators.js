@@ -5,9 +5,9 @@ const changeDetail = (data) => ({
     type: constants.CHANGE_DETAIL,
     detail: data
 });
-export const getDetail = () => {
+export const getDetail = (id) => {
     return (dispatch) => {
-        axios.get('/api/detail.json').then((res) => {
+        axios.get('/api/detail.json?id=' + id).then((res) => {
             const result = res.data.data;
             dispatch(changeDetail(result));
         })
