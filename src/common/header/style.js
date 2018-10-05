@@ -156,3 +156,10 @@ export const AppHeaderProfileEntry = styled.div`
      width: 30px;
      height: 30px;
 `;
+
+export const RecommendItem = styled.div`
+    width: 280px;
+    height: 50px;
+    background: url(${(props) => props.imgUrl});
+    background-size: contain;
+`;

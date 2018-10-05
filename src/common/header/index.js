@@ -54,7 +54,8 @@ class Index extends Component {
 
 const initMapStateToProps = (state) => {
     return {
-        focused: state.getIn(['header', 'focused'])
+        focused: state.getIn(['header', 'focused']),
+        login: state.getIn(['login', 'login'])
     }
 };
 
