@@ -47,7 +47,9 @@ class Index extends Component {
                         <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe614;</i>
                     </SearchWrapper>
                     <AppHeaderUserInfo>
-                        <NavItem><i className="iconfont">&#xe6d6;</i></NavItem>
+                        <Link to={'/write'}>
+                            <NavItem><i className="iconfont">&#xe6d6;</i></NavItem>
+                        </Link>
                         <NavItem><i className="iconfont">&#xe60a;</i></NavItem>
                         {
                             login ? <AppHeaderProfileEntry onClick={loginOut} imgUrl={imgUrl}/> :
