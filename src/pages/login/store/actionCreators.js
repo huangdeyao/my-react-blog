@@ -1,5 +1,4 @@
 import {constants} from './index';
-import {fromJS} from 'immutable';
 import axios from 'axios';
 
 const changeLogin = () => ({

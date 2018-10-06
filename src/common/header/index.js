@@ -21,8 +21,6 @@ import {
 class Index extends Component {
     render() {
         const {focused, handleInputFocus, handleInputBlur, login, imgUrl, loginOut} = this.props;
-        console.log("focused===>" + focused)
-        console.log("imgUrl===>" + imgUrl)
         return (
             <AppHeader>
                 <AppHeaderInner>
