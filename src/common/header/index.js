@@ -3,6 +3,8 @@ import {CSSTransition} from 'react-transition-group';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {actionCreators} from './store';
+import {actionCreators as loginActionCreators} from './../../pages/login/store';
+import anIcon from '../../statics/anonymous.jpg';
 import {
     AppHeader,
     AppHeaderInner,
@@ -18,6 +20,9 @@ import {
 
 class Index extends Component {
     render() {
+        const {focused, handleInputFocus, handleInputBlur, login, imgUrl, loginOut} = this.props;
+        console.log("focused===>" + focused)
+        console.log("imgUrl===>" + imgUrl)
         return (
             <AppHeader>
                 <AppHeaderInner>
@@ -35,16 +40,19 @@ class Index extends Component {
                             timeout={200}
                             classNames="slide"
                         >
-                            <NavSearch className={this.props.focused ? 'focused' : ''}
-                                       onFocus={this.props.handleInputFocus}
-                                       onBlur={this.props.handleInputBlur}/>
+                            <NavSearch className={focused ? 'focused' : ''}
+                                       onFocus={handleInputFocus}
+                                       onBlur={handleInputBlur}/>
                         </CSSTransition>
-                        <i className={this.props.focused ? 'focused iconfont' : 'iconfont'}>&#xe614;</i>
+                        <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe614;</i>
                     </SearchWrapper>
                     <AppHeaderUserInfo>
                         <NavItem><i className="iconfont">&#xe6d6;</i></NavItem>
                         <NavItem><i className="iconfont">&#xe60a;</i></NavItem>
-                        <AppHeaderProfileEntry/>
+                        {
+                            login ? <AppHeaderProfileEntry onClick={loginOut} imgUrl={imgUrl}/> :
+                                <Link to='/login'><AppHeaderProfileEntry imgUrl={anIcon}/></Link>
+                        }
                     </AppHeaderUserInfo>
                 </AppHeaderInner>
             </AppHeader>
@@ -55,7 +63,8 @@ class Index extends Component {
 const initMapStateToProps = (state) => {
     return {
         focused: state.getIn(['header', 'focused']),
-        login: state.getIn(['login', 'login'])
+        login: state.getIn(['login', 'login']),
+        imgUrl: state.getIn(['login', 'imgUrl'])
     }
 };
 
@@ -66,6 +75,9 @@ const initMapDispatchToProps = (dispatch) => {
         },
         handleInputBlur() {
             dispatch(actionCreators.searchBlur());
+        },
+        loginOut() {
+            dispatch(loginActionCreators.loginOut());
         }
     }
 };

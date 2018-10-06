@@ -1,1 +1,2 @@
-export const CHANGE_HOME_DATA = 'home/CHANGE_HOME_DATA';
+export const CHANGE_LOGIN = 'login/CHANGE_LOGIN';
+export const LOGIN_OUT = 'login/LOGIN_OUT';

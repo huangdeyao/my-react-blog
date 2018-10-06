@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import logoPic from '../../statics/logo.png';
-import anIcon from '../../statics/anonymous.jpg';
 
 export const AppHeader = styled.div`
     position: relative;
@@ -152,7 +151,8 @@ export const NavItem = styled.div`
 export const AppHeaderProfileEntry = styled.div`
      cursor: pointer;
      display: relative;
-     background: url(${anIcon}) no-repeat;
+     background: url(${(props) => props.imgUrl});
+     background-size: contain;
      width: 30px;
      height: 30px;
 `;
