@@ -1,19 +1,19 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
-
 
 class Login extends PureComponent {
     render() {
         const {loginStatus} = this.props;
         if (loginStatus) {
             return (
-               <div>写文章</div>
+               <div>
+               </div>
             )
         } else {
             return <Redirect to='/login'/>
         }
     }
+
 }
 
 const mapState = (state) => ({
