@@ -1,9 +1,7 @@
 import {fromJS} from 'immutable';
 import {constants} from './index';
-import {Editor, EditorState} from 'draft-js';
 
 const defaultState = fromJS({
-    editorState: EditorState.createEmpty()
 });
 
 
