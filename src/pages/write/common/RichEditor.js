@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import RichEditorHeaderImg from './RichEditorHeaderImg'
-import EditableToolbar from './EditableToolbar'
+import RichEditorHeaderImg from './RichEditorHeaderImg';
+import EditableToolbar from './EditableToolbar';
+import {Editor, EditorState} from 'draft-js';
 import {
     LayoutMain,
     WriteIndexTitleInput,
@@ -8,6 +9,13 @@ import {
 } from '../style';
 
 class RichEditor extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {editorState: EditorState.createEmpty()};
+        this.onChange = (editorState) => this.setState({editorState});
+    }
+
     render() {
         return (
             <LayoutMain>
@@ -16,6 +24,10 @@ class RichEditor extends Component {
                     <TextareaInput placeholder="请输入标题（最多 50 个字）"/>
                 </WriteIndexTitleInput>
                 <EditableToolbar/>
+                <Editor
+                    placeholder="Enter some text..."
+                    editorState={this.state.editorState}
+                    onChange={this.onChange} />
             </LayoutMain>
         )
     }

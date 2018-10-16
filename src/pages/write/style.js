@@ -94,6 +94,7 @@ export const PostEditor = styled.div`
     -ms-flex: 1;
     flex: 1;
     padding: 0;
+    margin-bottom: 15px;
     overflow: hidden;
     font-family: inherit;
     font-size: inherit;
