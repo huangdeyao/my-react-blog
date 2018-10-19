@@ -1,31 +1,39 @@
-import React,{Component} from 'react';
-import {PostEditor,EditableToolbarSticky,EditorButton,EditableToolbarSeparator,EditorButtonRight} from '../style';
+import React, {Component} from 'react';
+import {PostEditor, EditableToolbarSticky, EditorButton} from '../style';
+import {connect} from 'react-redux';
+import {actionCreators} from '../store'
 
-class EditableToolbar extends Component{
-    render(){
+class EditableToolbar extends Component {
+    render() {
+        const {editableTypes, handleClick} = this.props;
         return (
             <PostEditor>
                 <EditableToolbarSticky>
-                    <EditorButton><i className="iconfont">&#xe6e3;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe6f8;</i></EditorButton>
-                    <EditableToolbarSeparator/>
-                    <EditorButton><i className="iconfont">&#xe6e2;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe6f4;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe60c;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe6f1;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe6ec;</i></EditorButton>
-                    <EditableToolbarSeparator/>
-                    <EditorButton><i className="iconfont">&#xe627;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe616;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe607;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe6f0;</i></EditorButton>
-                    <EditorButton><i className="iconfont">&#xe6e5;</i></EditorButton>
-                    <EditorButtonRight><i className="iconfont">&#xe678;</i></EditorButtonRight>
+                    {
+                        editableTypes.map(item => (
+                            <EditorButton key={item.get('id')}
+                                          className={item.get('className')}
+                                          onClick={() => handleClick(item.get('id'))}
+                            >
+                                <i className={item.get('click') ? 'focused iconfont' : 'iconfont'}>{item.get('icon')}</i>
+                            </EditorButton>)
+                        )
+                    }
                 </EditableToolbarSticky>
             </PostEditor>
         )
     }
 }
 
-export default EditableToolbar;
+const mapState = (state) => ({
+    editableTypes: state.getIn(['write', 'editableTypes'])
+});
+
+const mapDispatch = (dispatch) => ({
+    handleClick(id) {
+        dispatch(actionCreators.handleOnClick(id - 1))
+    }
+});
+
+export default connect(mapState, mapDispatch)(EditableToolbar);
 

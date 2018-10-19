@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const WriteHome = styled.div`
     min-height: 1200px;
 `;
-
 export const LayoutMain = styled.div`
     background: #fff;
     margin: 40px auto 0;
@@ -12,7 +11,6 @@ export const LayoutMain = styled.div`
     min-height: 1160px;
     z-index: 1;
 `;
-
 export const WriteCoverWrapper = styled.div`
     cursor: pointer;
     background: #f7f8f9;
@@ -21,7 +19,6 @@ export const WriteCoverWrapper = styled.div`
     min-height: 192px;
     text-align: center;
 `;
-
 export const WriteCoverPreviewWrapper = styled.div`
     background: #f7f8f9;
     line-height: 192px;
@@ -29,7 +26,6 @@ export const WriteCoverPreviewWrapper = styled.div`
     min-height: 192px;
     text-align: center;
 `;
-
 export const UploadPictureWrapper = styled.label`
    .upload-picture-input {
        display: none;
@@ -41,7 +37,6 @@ export const UploadPictureWrapper = styled.label`
 		text-align: center;
 	}
 `;
-
 export const WriteIndexTitleInput = styled.div`
     margin: 16px 0;
     display: flex;
@@ -113,35 +108,31 @@ export const EditableToolbarSticky = styled.div`
     border-bottom: 1px solid rgba(0,0,0,.08);
     flex-direction: row;
     padding: 8px;
+    .nav:hover{
+        background: #f7f8f9!important; 
+    }
+    .right {
+        position: relative;
+        display: inline-block;
+        margin-left: auto;
+    }
+    .separator {
+        border-right: 1px solid #ebebeb;
+    }
 `;
-export const  EditorButton = styled.div`{
-    padding: 0 5px;
+export const EditorButton = styled.div`{
+    padding: 0 3px;
     text-align: center;
     font-size: 14px;
     color: #8590a6;
     cursor: pointer;
-    width: 24px
-    height: 24px
-    line-height: 24px
+    width: 20px;
+    height: 24px;
+    line-height: 24px;
+    .iconfont {
+		&.focused {
+			color: #0084ff;
+		}
+	}
 `;
-export const  EditorButtonRight = styled.div`{
-    padding: 0 5px;
-    text-align: center;
-    font-size: 14px;
-    color: #8590a6;
-    cursor: pointer;
-    width: 24px
-    height: 24px
-    line-height: 24px
-    position: relative;
-    display: inline-block;
-    margin-left: auto;
-`;
-export const  EditableToolbarSeparator = styled.span`{
-   background-color: #ebebeb;
-    display: inline-block;
-    height: 20px;
-    margin: 0 3px;
-    vertical-align: middle;
-    width: 1px;
-`;
+

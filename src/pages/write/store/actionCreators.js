@@ -1,10 +1,7 @@
 import {constants} from './index';
 
-export const handleOnchange = (editorState) => ({
-    type: constants.HANDLE_ONCHANGE,
-    value: editorState
+export const handleOnClick = (id) => ({
+    type: constants.EDITABLE_TYPES,
+    id
 });
-
-
-
 
