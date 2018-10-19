@@ -5,12 +5,12 @@ import {actionCreators} from '../store'
 
 class EditableToolbar extends Component {
     render() {
-        const {editableTypes, handleClick} = this.props;
+        const {headerToolBar, handleClick} = this.props;
         return (
             <PostEditor>
                 <EditableToolbarSticky>
                     {
-                        editableTypes.map(item => (
+                        headerToolBar.map(item => (
                             <EditorButton key={item.get('id')}
                                           className={item.get('className')}
                                           onClick={() => handleClick(item.get('id'))}
@@ -26,12 +26,12 @@ class EditableToolbar extends Component {
 }
 
 const mapState = (state) => ({
-    editableTypes: state.getIn(['write', 'editableTypes'])
+    headerToolBar: state.getIn(['write', 'headerToolBar'])
 });
 
 const mapDispatch = (dispatch) => ({
     handleClick(id) {
-        dispatch(actionCreators.handleOnClick(id - 1))
+        dispatch(actionCreators.handleOnClick(id))
     }
 });
 
