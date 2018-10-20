@@ -5,24 +5,22 @@ export const WriteHome = styled.div`
 `;
 export const LayoutMain = styled.div`
     background: #fff;
-    margin: 40px auto 0;
+    margin: 30px auto 0;
     padding: 0;
     width: 640px;
-    min-height: 1160px;
+    min-height: auto;
     z-index: 1;
 `;
 export const WriteCoverWrapper = styled.div`
     cursor: pointer;
     background: #f7f8f9;
     line-height: 192px;
-    color: gray;
     min-height: 192px;
     text-align: center;
 `;
 export const WriteCoverPreviewWrapper = styled.div`
     background: #f7f8f9;
     line-height: 192px;
-    color: gray;
     min-height: 192px;
     text-align: center;
 `;

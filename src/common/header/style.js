@@ -163,3 +163,29 @@ export const RecommendItem = styled.div`
     background: url(${(props) => props.imgUrl});
     background-size: contain;
 `;
+
+export const Addition = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 56px;
+`;
+
+export const Button = styled.div`
+  float: right;
+  margin-top: 9px;
+  margin-right: 15px;
+  padding: 0 20px;
+  line-height: 38px;
+  border-radius: 19px;
+  border: 1px solid #0084ff;
+  font-size: 14px;
+  cursor: pointer;
+  &.reg {
+    color: #0084ff;
+  }
+  &.writting {
+    color: #fff;
+    background: #0084ff;
+  }
+`;

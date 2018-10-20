@@ -1,21 +1,60 @@
 import React, {Component} from 'react';
+import Simditor from "simditor";
+import $ from "jquery";
 import RichEditorHeaderImg from './RichEditorHeaderImg';
-import EditableToolbar from './EditableToolbar';
-import MoveSelectionToEnd from './MoveSelectionToEnd'
-import {Editor, EditorState, RichUtils} from 'draft-js';
-import {
-    LayoutMain,
-    WriteIndexTitleInput,
-    TextareaInput
-} from '../style';
+import {connect} from 'react-redux';
+import {LayoutMain, WriteIndexTitleInput, TextareaInput} from '../style';
+import {actionCreators} from "../../write/store";
+
+require("simditor/styles/simditor.css");
 
 class RichEditor extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {editorState: EditorState.createEmpty()};
-        this.onChange = (editorState) => this.setState({editorState});
-    }
+    initEditor = () => {
+        let config = {
+            defaultImage: 'images/image.png',
+            params: {},
+            tabIndent: true,
+            toolbar: [
+                'title',
+                'bold',
+                'italic',
+                'underline',
+                'strikethrough',
+                'fontScale',
+                'color',
+                'ol',
+                'ul',
+                'blockquote',
+                'code',
+                'table',
+                'link',
+                'image',
+                'hr',
+                'alignment',
+            ],
+            upload: {
+                url: '/updata', //文件上传的接口地址
+                params: {
+                    appid: 'id',
+                    secret: 'xxx',
+                }, //键值对,指定文件上传接口的额外参数,上传的时候随文件一起提交
+                fileKey: 'file', //服务器端获取文件数据的参数名
+                connectionCount: 3,
+                leaveConfirm: '正在上传文件',
+            },
+            toolbarFloat: true,
+            toolbarFloatOffset: 0,
+            toolbarHidden: false,
+            pasteImage: false,
+            cleanPaste: false,
+            textarea: $(this.refs.textarea)
+        };
+        this.editor = new Simditor(config);
+        this.editor.on('valuechanged', () => {
+            this.getValue()
+        })
+    };
 
     render() {
         return (
@@ -24,14 +63,32 @@ class RichEditor extends Component {
                 <WriteIndexTitleInput>
                     <TextareaInput placeholder="请输入标题（最多 50 个字）"/>
                 </WriteIndexTitleInput>
-                <EditableToolbar/>
-                <Editor
-                    editorState={this.state.editorState}
-                    onChange={this.onChange}/>
+                <textarea
+                    id={this.props.id}
+                    ref="textarea"/>
             </LayoutMain>
         )
     }
+
+    componentDidMount = () => {
+        this.initEditor();
+        this.editor.setValue(this.props.article)
+    };
+
+    getValue() {
+        this.props.getValue(this.editor.getValue().trim());
+    };
 }
 
-export default RichEditor;
+const mapState = (state) => ({
+    article: state.getIn(['write', 'article'])
+});
+
+const mapDispatch = (dispatch) => ({
+    getValue(article) {
+        dispatch(actionCreators.articleValue(article))
+    }
+});
+
+export default connect(mapState, mapDispatch)(RichEditor);
 

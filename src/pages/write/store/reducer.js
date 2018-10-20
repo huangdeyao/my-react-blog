@@ -1,22 +1,42 @@
 import {fromJS} from 'immutable';
 import {constants} from './index';
-import {INIT_DATA} from './initData'
+import axios from "axios";
 
 const defaultState = fromJS({
-    headerToolBar: INIT_DATA.get('headerToolBar')
+    writing: false,
+    release: false,
+    article: '132312'
 });
 
-const handleEditable = (state, id) => {
-    const newState = defaultState.setIn(['headerToolBar', id, 'click'], !state.getIn(['headerToolBar', id, 'click']));
-    return state.merge({headerToolBar: newState.get('headerToolBar')}
-    );
-};
+const addArticle = (state) => {
+    const content = JSON.stringify(state.get('article'));
+    console.log(content);
+    const params = {
+        'content': JSON.stringify(state.get('article'))
+    };
 
+    axios.post('http://localhost:8080/api/add/article', params).then(res => {
+        const result = res.data.data;
+        console.log(result)
+    }).catch(error => {
+        console.log(error)
+    });
+
+    // axios.get('http://localhost:8080/api/add/article?content=' + content).then((res) => {
+    //     const result = res.data.data;
+    //     console.log(result)
+    // });
+    return state
+};
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case constants.EDITABLE_TYPES:
-            return handleEditable(state, action.id);
+        case constants.WRITING_HANDLE:
+            return state.set('writing', action.value);
+        case constants.RELEASE_ARTICLE:
+            return addArticle(state, action);
+        case constants.ARTICLE_VALUE:
+            return state.set('article', action.value);
         default:
             return state;
     }

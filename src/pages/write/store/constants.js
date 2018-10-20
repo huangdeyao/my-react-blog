@@ -1,4 +1,3 @@
-export const WRITE_EDITOR = 'write/write_editor';
-export const HANDLE_ONCHANGE = 'write/handle_onchange';
-export const EDITABLE_TYPES = 'write/editable_types';
-
+export const WRITING_HANDLE = 'write/writing_handle';
+export const RELEASE_ARTICLE = 'write/release_article';
+export const ARTICLE_VALUE = 'write/article_value';

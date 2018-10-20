@@ -7,8 +7,9 @@ const changeDetail = (data) => ({
 });
 export const getDetail = (id) => {
     return (dispatch) => {
-        axios.get('/api/detail.json?id=' + id).then((res) => {
-            const result = res.data.data;
+        axios.get('http://localhost:8080/api/get/article').then((res) => {
+            const result = res.data;
+            console.log(result);
             dispatch(changeDetail(result));
         })
     }

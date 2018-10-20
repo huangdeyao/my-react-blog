@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {actionCreators} from './store';
 import {actionCreators as loginActionCreators} from './../../pages/login/store';
+import {actionCreators as writeActionCreators} from './../../pages/write/store';
 import anIcon from '../../statics/anonymous.jpg';
 import {
     AppHeader,
@@ -15,12 +16,14 @@ import {
     NavSearch,
     AppHeaderUserInfo,
     NavItem,
-    AppHeaderProfileEntry
+    AppHeaderProfileEntry,
+    Addition,
+    Button
 } from "./style";
 
 class Index extends Component {
     render() {
-        const {focused, handleInputFocus, handleInputBlur, login, imgUrl, loginOut} = this.props;
+        const {focused, handleInputFocus, handleInputBlur, login, imgUrl, loginOut, writing,releaseArticle} = this.props;
         return (
             <AppHeader>
                 <AppHeaderInner>
@@ -44,16 +47,24 @@ class Index extends Component {
                         </CSSTransition>
                         <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe614;</i>
                     </SearchWrapper>
-                    <AppHeaderUserInfo>
-                        <Link to={'/write'}>
-                            <NavItem><i className="iconfont">&#xe6d6;</i></NavItem>
-                        </Link>
-                        <NavItem><i className="iconfont">&#xe60a;</i></NavItem>
-                        {
-                            login ? <AppHeaderProfileEntry onClick={loginOut} imgUrl={imgUrl}/> :
-                                <Link to='/login'><AppHeaderProfileEntry imgUrl={anIcon}/></Link>
-                        }
-                    </AppHeaderUserInfo>
+                    {
+                        writing ?
+                            <Addition>
+                                <Button className='writting' onClick={releaseArticle}>
+                                    <i className="iconfont">&#xe601;</i>发布
+                                </Button>
+                                <Button className='reg'>注册</Button>
+                            </Addition>
+                            :
+                            <AppHeaderUserInfo>
+                                <NavItem><i className="iconfont">&#xe6d6;</i></NavItem>
+                                <NavItem><i className="iconfont">&#xe60a;</i></NavItem>
+                                {
+                                    login ? <AppHeaderProfileEntry onClick={loginOut} imgUrl={imgUrl}/> :
+                                        <Link to='/login'><AppHeaderProfileEntry imgUrl={anIcon}/></Link>
+                                }
+                            </AppHeaderUserInfo>
+                    }
                 </AppHeaderInner>
             </AppHeader>
         )
@@ -64,7 +75,8 @@ const initMapStateToProps = (state) => {
     return {
         focused: state.getIn(['header', 'focused']),
         login: state.getIn(['login', 'login']),
-        imgUrl: state.getIn(['login', 'imgUrl'])
+        imgUrl: state.getIn(['login', 'imgUrl']),
+        writing: state.getIn(['write', 'writing'])
     }
 };
 
@@ -78,6 +90,9 @@ const initMapDispatchToProps = (dispatch) => {
         },
         loginOut() {
             dispatch(loginActionCreators.loginOut());
+        },
+        releaseArticle(){
+            dispatch(writeActionCreators.releaseArticle());
         }
     }
 };
