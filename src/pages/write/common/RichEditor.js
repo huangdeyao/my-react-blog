@@ -72,7 +72,8 @@ class RichEditor extends Component {
 
     componentDidMount = () => {
         this.initEditor();
-        this.editor.setValue(this.props.article)
+        const detail = this.props.detail.toJSON();
+        this.editor.setValue(detail.content)
     };
 
     getValue() {
@@ -81,7 +82,8 @@ class RichEditor extends Component {
 }
 
 const mapState = (state) => ({
-    article: state.getIn(['write', 'article'])
+    article: state.getIn(['write', 'article']),
+    detail: state.getIn(['detail', 'article'])
 });
 
 const mapDispatch = (dispatch) => ({

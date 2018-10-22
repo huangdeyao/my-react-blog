@@ -1,6 +1,7 @@
 import {fromJS} from 'immutable';
 import {constants} from './index';
 import axios from "axios";
+import {Buffer} from "buffer"
 
 const defaultState = fromJS({
     writing: false,
@@ -9,10 +10,9 @@ const defaultState = fromJS({
 });
 
 const addArticle = (state) => {
-    const content = JSON.stringify(state.get('article'));
-    console.log(content);
+    const content = state.get('article');
     const params = {
-        'content': JSON.stringify(state.get('article'))
+        'content': Buffer(content).toString('base64')
     };
 
     axios.post('http://localhost:8080/api/add/article', params).then(res => {

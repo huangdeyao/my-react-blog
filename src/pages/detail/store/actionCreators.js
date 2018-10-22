@@ -10,6 +10,7 @@ export const getDetail = (id) => {
         axios.get('http://localhost:8080/api/get/article').then((res) => {
             const result = res.data;
             console.log(result);
+            console.log(result.content);
             dispatch(changeDetail(result));
         })
     }

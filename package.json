@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "buffer": "^5.2.1",
     "draft-js": "^0.10.5",
     "expose-loader": "^0.7.5",
     "immutable": "^3.8.2",

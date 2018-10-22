@@ -6,13 +6,17 @@ import {
     DetailWrapper,
     DetaliHeader,
     DetailAuthor,
-    AuthorInfo,
-    DetailContent
+    AuthorInfo
 } from './style';
+
+const style={
+    border:'0',
+};
 
 class Detail extends PureComponent {
     render() {
-        const detail = this.props.detail.toJS();
+        const detail = this.props.detail.toJSON();
+        console.log(detail.content);
         return (
             <DetailWrapper>
                 <DetaliHeader>{detail.title}</DetaliHeader>
@@ -25,7 +29,9 @@ class Detail extends PureComponent {
                         <p className='info'>2018.06.27 23:33* 字数 3836 阅读 2085评论 19喜欢 43</p>
                     </AuthorInfo>
                 </DetailAuthor>
-                <DetailContent dangerouslySetInnerHTML={{__html: detail.content}}/>
+                <div className="simditor" style={style}>
+                    <div className="simditor-body" dangerouslySetInnerHTML={{__html: detail.content}}/>
+                </div>
             </DetailWrapper>
         )
     }
