@@ -5,12 +5,8 @@ import RichEditorHeaderImg from './RichEditorHeaderImg';
 import {connect} from 'react-redux';
 import {LayoutMain, WriteIndexTitleInput, TextareaInput} from '../style';
 import {actionCreators} from "../../write/store";
-
 require("simditor/styles/simditor.css");
 
-const style={
-    border:'0',
-};
 class RichEditor extends Component {
 
     initEditor = () => {

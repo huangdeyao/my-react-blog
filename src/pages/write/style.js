@@ -133,4 +133,28 @@ export const EditorButton = styled.div`{
 		}
 	}
 `;
-
+export const ContainerBtn = styled.div`{
+    position: fixed;
+    top: 100px;
+    line-height: 160px;
+    font-size: 12px;
+    margin: auto 0;
+    padding: 0;
+    width: 800px;
+    left:50%;
+    margin-left:-400px;
+    z-index: -1;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 300px;
+}`;
+export const NavItem = styled.div`
+    margin: 8px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #0084ff;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+`;

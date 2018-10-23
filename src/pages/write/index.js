@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {WriteHome} from './style';
+import {WriteHome, ContainerBtn,NavItem} from './style';
 import RichEditor from './common/RichEditor';
 import {actionCreators} from "../write/store";
 
@@ -10,6 +10,11 @@ class Index extends PureComponent {
         return (
             <WriteHome>
                 <RichEditor/>
+                <ContainerBtn>
+                    <NavItem><i className="material-icons">1</i></NavItem>
+                    <NavItem><i className="material-icons">2</i></NavItem>
+                    <NavItem><i className="material-icons">3</i></NavItem>
+                </ContainerBtn>
             </WriteHome>
         )
     }
@@ -17,7 +22,8 @@ class Index extends PureComponent {
     componentDidMount() {
         this.props.writingHandle(true);
     };
-    componentWillUnmount(){
+
+    componentWillUnmount() {
         this.props.writingHandle(false);
     };
 }
