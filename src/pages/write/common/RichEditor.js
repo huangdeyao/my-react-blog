@@ -8,10 +8,14 @@ import {actionCreators} from "../../write/store";
 
 require("simditor/styles/simditor.css");
 
+const style={
+    border:'0',
+};
 class RichEditor extends Component {
 
     initEditor = () => {
         let config = {
+            border: '0',
             defaultImage: 'images/image.png',
             params: {},
             tabIndent: true,
