@@ -82,60 +82,9 @@ export const TextareaInput = styled.textarea`
         color: #aaa;
     }
 `;
-export const PostEditor = styled.div`
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    padding: 0;
-    margin-bottom: 15px;
-    overflow: hidden;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    background: transparent;
-    border: none;
-    outline: none;
-    resize: none;
-`;
-export const EditableToolbarSticky = styled.div`
-    align-items: center;
-    display: flex;
-    height: auto;
-    background: transparent;
-    border-top: 1px solid rgba(0,0,0,.08);
-    border-bottom: 1px solid rgba(0,0,0,.08);
-    flex-direction: row;
-    padding: 8px;
-    .nav:hover{
-        background: #f7f8f9!important; 
-    }
-    .right {
-        position: relative;
-        display: inline-block;
-        margin-left: auto;
-    }
-    .separator {
-        border-right: 1px solid #ebebeb;
-    }
-`;
-export const EditorButton = styled.div`{
-    padding: 0 3px;
-    text-align: center;
-    font-size: 14px;
-    color: #8590a6;
-    cursor: pointer;
-    width: 20px;
-    height: 24px;
-    line-height: 24px;
-    .iconfont {
-		&.focused {
-			color: #0084ff;
-		}
-	}
-`;
-export const ContainerBtn = styled.div`{
+export const ContainerFixed = styled.div`{
     position: fixed;
-    top: 100px;
+    top: 150px;
     line-height: 160px;
     font-size: 12px;
     margin: auto 0;
@@ -143,18 +92,33 @@ export const ContainerBtn = styled.div`{
     width: 800px;
     left:50%;
     margin-left:-400px;
-    z-index: -1;
+    height: auto;
     display: flex;
     flex-direction: row-reverse;
-    height: 300px;
+    background: transparent;
+}`;
+export const ContainerBtn = styled.div`{
+    padding: 0;
+    width: 60px;
 }`;
 export const NavItem = styled.div`
-    margin: 8px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 1px solid #0084ff;
-    font-size: 14px;
     cursor: pointer;
+    margin: 8px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
     text-align: center;
+    background-color: #fff;
+    transition: background .2s,border .2s;
+    &:hover{
+        background-color: #f7f8f9;
+        transition: background .2s,border .2s; 
+        .iconfont {
+            color: #0084ff;
+        }
+    }
+    .iconfont {
+        color: #aaa;
+    }
 `;

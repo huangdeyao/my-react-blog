@@ -1,20 +1,24 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {WriteHome, ContainerBtn,NavItem} from './style';
+import {WriteHome, ContainerFixed, ContainerBtn, NavItem} from './style';
 import RichEditor from './common/RichEditor';
 import {actionCreators} from "../write/store";
+import {actionCreators as writeActionCreators} from "./store";
 
 class Index extends PureComponent {
 
     render() {
+        const {releaseArticle} = this.props;
         return (
             <WriteHome>
                 <RichEditor/>
-                <ContainerBtn>
-                    <NavItem><i className="material-icons">1</i></NavItem>
-                    <NavItem><i className="material-icons">2</i></NavItem>
-                    <NavItem><i className="material-icons">3</i></NavItem>
-                </ContainerBtn>
+                <ContainerFixed>
+                    <ContainerBtn>
+                        <NavItem><i className="iconfont" onClick={releaseArticle}>&#xe62f;</i></NavItem>
+                        <NavItem><i className="iconfont">&#xe6c4;</i></NavItem>
+                        <NavItem><i className="iconfont">&#xe613;</i></NavItem>
+                    </ContainerBtn>
+                </ContainerFixed>
             </WriteHome>
         )
     }
@@ -34,6 +38,9 @@ const mapState = (state) => ({});
 const mapDispatch = (dispatch) => ({
     writingHandle(handle) {
         dispatch(actionCreators.writingHandle(handle))
+    },
+    releaseArticle(){
+        dispatch(writeActionCreators.releaseArticle());
     }
 });
 

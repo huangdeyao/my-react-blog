@@ -4,7 +4,6 @@ import axios from "axios";
 import {Buffer} from "buffer"
 
 const defaultState = fromJS({
-    writing: false,
     release: false,
     article: '132312'
 });
