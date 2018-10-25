@@ -14,26 +14,21 @@ export const LayoutMain = styled.div`
 export const WriteCoverWrapper = styled.div`
     cursor: pointer;
     background: #f7f8f9;
-    line-height: 192px;
-    min-height: 192px;
-    text-align: center;
+    text-align: center; 
+    height: 208px;
+    width: 640px;
+    line-height: 208px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
 `;
-export const WriteCoverPreviewWrapper = styled.div`
-    background: #f7f8f9;
-    line-height: 192px;
-    min-height: 192px;
-    text-align: center;
-`;
-export const UploadPictureWrapper = styled.label`
-   .upload-picture-input {
-       display: none;
-   }
- 	.iconfont {
-		width: 45px;
-		line-height: 45px;
-		border-radius: 15px;
-		text-align: center;
-	}
+export const WriteTitleImg = styled.div`
+    display: block;
+	width: 624px;
+	height: 208px;
+	background: url(${(props) => props.imgUrl});
+	background-size: cover;
+	cursor: pointer;
 `;
 export const WriteIndexTitleInput = styled.div`
     margin: 16px 0;
@@ -84,14 +79,13 @@ export const TextareaInput = styled.textarea`
 `;
 export const ContainerFixed = styled.div`{
     position: fixed;
-    top: 150px;
+    top: 100px;
     line-height: 160px;
     font-size: 12px;
     margin: auto 0;
     padding: 0;
-    width: 800px;
-    left:50%;
-    margin-left:-400px;
+    right:50%;
+    margin-right:-400px;
     height: auto;
     display: flex;
     flex-direction: row-reverse;

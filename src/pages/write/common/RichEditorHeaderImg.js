@@ -1,20 +1,51 @@
-import React,{Component} from 'react';
-import {WriteCoverWrapper,WriteCoverPreviewWrapper,UploadPictureWrapper} from '../style';
+import React, {Component} from 'react';
+import {WriteCoverWrapper, WriteTitleImg} from '../style';
+import {Upload, Icon, Modal} from 'antd';
+import {connect} from 'react-redux';
+import {actionCreators} from "../../write/store";
 
-class RichEditorHeaderImg extends Component{
-    render(){
+class RichEditorHeaderImg extends Component {
+    render() {
+        const {loading, imageUrl, beforeUpload, handleChange} = this.props;
+        const uploadButton = (
+            <div>
+                <Icon type={loading ? 'loading' : 'plus'}/>
+                <div className="ant-upload-text">Upload</div>
+            </div>
+        );
         return (
-                <WriteCoverWrapper>
-                    <WriteCoverPreviewWrapper>
-                        <UploadPictureWrapper>
-                            <i className="iconfont">&#xe672;</i>
-                            <input type="file" accept=".jpeg, .jpg, .png" className="upload-picture-input"/>
-                        </UploadPictureWrapper>
-                    </WriteCoverPreviewWrapper>
-                </WriteCoverWrapper>
+            <WriteCoverWrapper>
+                <Upload
+                    name="file"
+                    listType="picture-card"
+                    className="avatar-uploader"
+                    showUploadList={false}
+                    action="//localhost:8888/upload"
+                    beforeUpload={beforeUpload}
+                    onChange={handleChange}
+                >
+                    {imageUrl ? <WriteTitleImg imgUrl={imageUrl} alt="avatar"/> : uploadButton}
+                </Upload>
+            </WriteCoverWrapper>
         )
     }
+
+
 }
 
-export default RichEditorHeaderImg;
+
+const mapState = (state) => ({
+    loading: state.getIn(['write', 'loading']),
+    imageUrl: state.getIn(['write', 'imageUrl'])
+});
+
+const mapDispatch = (dispatch) => ({
+    beforeUpload(e) {
+        actionCreators.beforeUpload(e);
+    },
+    handleChange(e) {
+        dispatch(actionCreators.handleChange(e));
+    }
+});
+export default connect(mapState, mapDispatch)(RichEditorHeaderImg);
 

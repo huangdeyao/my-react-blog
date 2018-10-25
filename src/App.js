@@ -7,6 +7,7 @@ import Home from './pages/home';
 import Detail from './pages/detail/loadableComponent';
 import Login from './pages/login';
 import Write from './pages/write';
+
 class App extends Component {
     render() {
         return (

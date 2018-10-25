@@ -5,28 +5,10 @@ import {Buffer} from "buffer"
 
 const defaultState = fromJS({
     release: false,
-    article: '132312'
+    article: '132312',
+    loading: false,
+    imageUrl: 'http://markorwex-1256454203.cos.ap-beijing.myqcloud.com/nulltest.jpg'
 });
-
-const addArticle = (state) => {
-    const content = state.get('article');
-    const params = {
-        'content': Buffer(content).toString('base64')
-    };
-
-    axios.post('http://localhost:8080/api/add/article', params).then(res => {
-        const result = res.data.data;
-        console.log(result)
-    }).catch(error => {
-        console.log(error)
-    });
-
-    // axios.get('http://localhost:8080/api/add/article?content=' + content).then((res) => {
-    //     const result = res.data.data;
-    //     console.log(result)
-    // });
-    return state
-};
 
 export default (state = defaultState, action) => {
     switch (action.type) {
@@ -36,7 +18,31 @@ export default (state = defaultState, action) => {
             return addArticle(state, action);
         case constants.ARTICLE_VALUE:
             return state.set('article', action.value);
+        case constants.ARTICLE_UPLOAD:
+            return imageUpload(state, action);
         default:
             return state;
     }
 }
+
+
+const addArticle = (state) => {
+    const content = state.get('article');
+    const params = {
+        'content': Buffer(content).toString('base64')
+    };
+    axios.post('http://localhost:8080/api/add/article', params).then(res => {
+        const result = res.data.data;
+        console.log(result)
+    }).catch(error => {
+        console.log(error)
+    });
+    return state
+};
+
+const imageUpload = (state,action) => {
+    return state.merge({
+        imageUrl: fromJS(action.imageUrl),
+        loading: fromJS(action.loading)
+    });
+};
