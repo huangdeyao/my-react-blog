@@ -29,6 +29,9 @@ export const WriteTitleImg = styled.div`
 	background: url(${(props) => props.imgUrl});
 	background-size: cover;
 	cursor: pointer;
+	:hover{
+       opacity: 0.5;
+    }
 `;
 export const WriteIndexTitleInput = styled.div`
     margin: 16px 0;

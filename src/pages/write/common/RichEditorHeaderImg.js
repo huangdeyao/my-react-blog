@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {WriteCoverWrapper, WriteTitleImg} from '../style';
-import {Upload, Icon, Modal} from 'antd';
+import {Upload, Icon} from 'antd';
 import {connect} from 'react-redux';
 import {actionCreators} from "../../write/store";
 
@@ -29,10 +29,7 @@ class RichEditorHeaderImg extends Component {
             </WriteCoverWrapper>
         )
     }
-
-
 }
-
 
 const mapState = (state) => ({
     loading: state.getIn(['write', 'loading']),
