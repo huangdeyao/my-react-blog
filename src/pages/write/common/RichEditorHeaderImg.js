@@ -6,7 +6,7 @@ import {actionCreators} from "../../write/store";
 
 class RichEditorHeaderImg extends Component {
     render() {
-        const {loading, imageUrl, beforeUpload, handleChange} = this.props;
+        const {loading, imageUrl, beforeUpload, handleChange,handleMouseUserOver,handleMouseOut} = this.props;
         const uploadButton = (
             <div>
                 <Icon type={loading ? 'loading' : 'plus'}/>
@@ -24,7 +24,16 @@ class RichEditorHeaderImg extends Component {
                     beforeUpload={beforeUpload}
                     onChange={handleChange}
                 >
-                    {imageUrl ? <WriteTitleImg imgUrl={imageUrl} alt="avatar"/> : uploadButton}
+                    {
+                        imageUrl ?
+                            <WriteTitleImg
+                                onMouseOver={handleMouseUserOver}
+                                onMouseLeave={handleMouseOut}
+                                imgUrl={imageUrl}
+                                alt="avatar"
+                            />
+                            : uploadButton
+                    }
                 </Upload>
             </WriteCoverWrapper>
         )
@@ -37,6 +46,12 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
+    handleMouseUserOver(){
+        console.log("鼠标进入");
+    },
+    handleMouseOut(){
+        console.log("鼠标离开");
+    },
     beforeUpload(e) {
         actionCreators.beforeUpload(e);
     },
