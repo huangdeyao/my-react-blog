@@ -29,9 +29,12 @@ export default (state = defaultState, action) => {
 const addArticle = (state) => {
     const content = state.get('article');
     const params = {
-        'content': Buffer(content).toString('base64')
+        'content': Buffer(content).toString('base64'),
+        'author': 'author',
+        'title': '测试文章',
+        'likes': 12
     };
-    axios.post('http://localhost:8080/api/add/article', params).then(res => {
+    axios.post('http://localhost:8081/api/add/article', params).then(res => {
         const result = res.data.data;
         console.log(result)
     }).catch(error => {
@@ -40,7 +43,7 @@ const addArticle = (state) => {
     return state
 };
 
-const imageUpload = (state,action) => {
+const imageUpload = (state, action) => {
     return state.merge({
         imageUrl: fromJS(action.imageUrl),
         loading: fromJS(action.loading)
