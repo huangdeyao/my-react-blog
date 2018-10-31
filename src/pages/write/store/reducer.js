@@ -7,7 +7,7 @@ const defaultState = fromJS({
     release: false,
     article: '132312',
     loading: false,
-    imageUrl: 'http://markorwex-1256454203.cos.ap-beijing.myqcloud.com/nulltest.jpg'
+    imageUrl: ''
 });
 
 export default (state = defaultState, action) => {

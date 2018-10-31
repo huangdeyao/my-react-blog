@@ -3,7 +3,6 @@ import {WriteCoverWrapper, WriteTitleImg} from '../style';
 import {Upload, Icon} from 'antd';
 import {connect} from 'react-redux';
 import {actionCreators} from "../../write/store";
-import 'antd/dist/antd.css';
 
 class RichEditorHeaderImg extends Component {
     render() {
