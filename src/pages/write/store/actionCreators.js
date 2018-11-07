@@ -6,9 +6,9 @@ export const writingHandle = (handle) => ({
     value: handle
 });
 
-export const releaseArticle = () => ({
-    type: constants.RELEASE_ARTICLE,
-    value: true
+export const releaseArticle = (visible) => ({
+    type: constants.RELEASE_MODEL,
+    modelVisible: visible
 });
 
 export const articleValue = (article) => ({

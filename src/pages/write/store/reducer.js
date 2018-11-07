@@ -7,7 +7,8 @@ const defaultState = fromJS({
     release: false,
     article: '132312',
     loading: false,
-    imageUrl: ''
+    imageUrl: '',
+    modelVisible: false
 });
 
 export default (state = defaultState, action) => {
@@ -16,6 +17,8 @@ export default (state = defaultState, action) => {
             return state.set('writing', action.value);
         case constants.RELEASE_ARTICLE:
             return addArticle(state, action);
+        case constants.RELEASE_MODEL:
+            return state.set('modelVisible', action.value);
         case constants.ARTICLE_VALUE:
             return state.set('article', action.value);
         case constants.ARTICLE_UPLOAD:

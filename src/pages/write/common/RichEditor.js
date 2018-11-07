@@ -77,7 +77,7 @@ class RichEditor extends Component {
     };
 
     getValue() {
-        this.props.getValue(this.editor.getValue().trim());
+        // this.props.getValue(this.editor.getValue().trim());
     };
 }
 
