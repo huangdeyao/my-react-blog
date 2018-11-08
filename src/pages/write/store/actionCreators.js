@@ -1,35 +1,8 @@
 import {constants} from './index';
 import {message} from 'antd';
-import uploadUrl from "../../../api/config";
-import {Buffer} from "buffer";
-import axios from "axios";
 
-export const handleOk = (state) => {
-    return (dispatch) => {
-        const content = state.get('content');
-        const params = {
-            'author': 'author',
-            'title': state.get('title'),
-            'content': Buffer(content).toString('base64'),
-            'imageUrl': state.get('imageUrl'),
-            'imageUrlId': state.get('imageUrlId'),
-            'likes': 12
-        };
-        console.log("***********");
-        // axios.post(uploadUrl.article_add, params).then(res => {
-        //     const result = res.data.data;
-        //     console.log(result);
-        //     dispatch(isHandleOk(result.id));
-        // }).catch(error => {
-        //     console.log(error);
-        // });
-    }
-};
-
-const isHandleOk = (articleId) => ({
+export const handleOk = () => ({
     type: constants.RELEASE_ARTICLE,
-    release: true,
-    articleId: articleId
 });
 
 export const titleHandleChange = (value) => ({
