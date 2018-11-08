@@ -5,6 +5,7 @@ import RichEditorHeaderImg from './RichEditorHeaderImg';
 import {connect} from 'react-redux';
 import {LayoutMain, WriteIndexTitleInput, TextareaInput} from '../style';
 import {actionCreators} from "../../write/store";
+import uploadUrl from './../../../api/config'
 require("simditor/styles/simditor.css");
 
 class RichEditor extends Component {
@@ -34,7 +35,7 @@ class RichEditor extends Component {
                 'alignment',
             ],
             upload: {
-                url: '/updata', //文件上传的接口地址
+                url: uploadUrl.article_homepage_image_upload, //文件上传的接口地址
                 params: {
                     appid: 'id',
                     secret: 'xxx',
@@ -57,11 +58,12 @@ class RichEditor extends Component {
     };
 
     render() {
+        const {titleHandleChange} = this.props;
         return (
             <LayoutMain>
                 <RichEditorHeaderImg/>
                 <WriteIndexTitleInput>
-                    <TextareaInput placeholder="请输入标题（最多 50 个字）"/>
+                    <TextareaInput placeholder="请输入标题（最多 50 个字）" onChange={titleHandleChange}/>
                 </WriteIndexTitleInput>
                 <textarea
                     id={this.props.id}
@@ -70,25 +72,23 @@ class RichEditor extends Component {
         )
     }
 
-    componentDidMount = () => {
+    componentDidMount() {
         this.initEditor();
-        const detail = this.props.detail.toJSON();
-        this.editor.setValue(detail.content)
     };
 
     getValue() {
-        // this.props.getValue(this.editor.getValue().trim());
+        this.props.getValue(this.editor.getValue().trim());
     };
 }
 
-const mapState = (state) => ({
-    article: state.getIn(['write', 'article']),
-    detail: state.getIn(['detail', 'article'])
-});
+const mapState = (state) => ({});
 
 const mapDispatch = (dispatch) => ({
-    getValue(article) {
-        dispatch(actionCreators.articleValue(article))
+    getValue(content) {
+        dispatch(actionCreators.articleValue(content))
+    },
+    titleHandleChange(e) {
+        dispatch(actionCreators.titleHandleChange(e.target.value))
     }
 });
 

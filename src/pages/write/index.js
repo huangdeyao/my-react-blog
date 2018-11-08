@@ -1,58 +1,54 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {WriteHome, ContainerFixed, ContainerBtn, NavItem} from './style';
+import {ContainerBtn, ContainerFixed, NavItem, WriteHome} from './style';
 import RichEditor from './common/RichEditor';
-import {actionCreators} from "../write/store";
 import {actionCreators as writeActionCreators} from "./store";
 import {Tooltip} from 'antd';
 import ReleaseArtile from './common/ReleaseModal';
+import {Redirect} from 'react-router-dom';
 
 class Index extends PureComponent {
     render() {
-        const {releaseArticle, modelVisible} = this.props;
-        return (
-            <WriteHome>
-                <RichEditor/>
-                <ContainerFixed>
-                    <ContainerBtn>
-                        <Tooltip placement="right" title="发布">
-                            <NavItem><i className="iconfont"
-                                        onClick={releaseArticle(modelVisible)}>&#xe62f;</i></NavItem>
-                        </Tooltip>
-                        <ReleaseArtile/>
-                        <Tooltip placement="right" title="保存">
-                            <NavItem><i className="iconfont">&#xe6c4;</i></NavItem>
-                        </Tooltip>
-                        <Tooltip placement="right" title="预览">
-                            <NavItem><i className="iconfont">&#xe613;</i></NavItem>
-                        </Tooltip>
-                    </ContainerBtn>
-                </ContainerFixed>
-            </WriteHome>
-        )
-    }
+        const {releaseArticle, release, articleId} = this.props;
+        if (!release) {
+            return (
+                <WriteHome>
+                    <RichEditor/>
+                    <ContainerFixed>
+                        <ContainerBtn>
+                            <Tooltip placement="right" title="保存">
+                                <NavItem
+                                    onClick={releaseArticle}>
+                                    <i className="iconfont">&#xe62f;</i>
+                                </NavItem>
+                            </Tooltip>
+                            <ReleaseArtile/>
+                            <Tooltip placement="right" title="保存">
+                                <NavItem><i className="iconfont">&#xe6c4;</i></NavItem>
+                            </Tooltip>
+                            <Tooltip placement="right" title="预览">
+                                <NavItem><i className="iconfont">&#xe613;</i></NavItem>
+                            </Tooltip>
+                        </ContainerBtn>
+                    </ContainerFixed>
+                </WriteHome>
+            )
+        } else {
+            return <Redirect to={'/detail/' + articleId}/>
+        }
 
-    //
-    // componentDidMount() {
-    //     this.props.writingHandle(true);
-    // };
-    //
-    // componentWillUnmount() {
-    //     this.props.writingHandle(false);
-    // };
+    }
 }
 
 
 const mapState = (state) => ({
-    modelVisible: state.getIn(['write', 'modelVisible'])
+    release: state.getIn(['write', 'release']),
+    articleId: state.getIn(['write', 'articleId'])
 });
 
 const mapDispatch = (dispatch) => ({
-    // writingHandle(handle) {
-    //     dispatch(actionCreators.writingHandle(handle))
-    // },
-    releaseArticle(visible) {
-        dispatch(writeActionCreators.releaseArticle(!visible));
+    releaseArticle() {
+        dispatch(writeActionCreators.releaseArticle(true));
     }
 });
 

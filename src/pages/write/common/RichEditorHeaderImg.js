@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import {WriteCoverWrapper, WriteTitleImg} from '../style';
 import {Upload, Icon} from 'antd';
 import {connect} from 'react-redux';
-import {actionCreators} from "../../write/store";
+import {actionCreators} from '../../write/store';
+import uploadUrl from './../../../api/config'
 
 class RichEditorHeaderImg extends Component {
     render() {
-        const {loading, imageUrl, beforeUpload, handleChange,handleMouseUserOver,handleMouseOut} = this.props;
+        const {loading, imageUrl, beforeUpload, handleChange, handleMouseUserOver, handleMouseOut} = this.props;
         const uploadButton = (
             <div>
                 <Icon type={loading ? 'loading' : 'plus'}/>
@@ -20,7 +21,7 @@ class RichEditorHeaderImg extends Component {
                     listType="picture-card"
                     className="avatar-uploader"
                     showUploadList={false}
-                    action="//localhost:8888/upload"
+                    action={uploadUrl.article_homepage_image_upload}
                     beforeUpload={beforeUpload}
                     onChange={handleChange}
                 >
@@ -46,12 +47,12 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-    handleMouseUserOver(e){
-        console.log(e);
-        console.log("鼠标进入");
+    handleMouseUserOver(e) {
+        // console.log(e);
+        // console.log("鼠标进入");
     },
-    handleMouseOut(){
-        console.log("鼠标离开");
+    handleMouseOut() {
+        // console.log("鼠标离开");
     },
     beforeUpload(e) {
         actionCreators.beforeUpload(e);

@@ -1,45 +1,74 @@
 import {constants} from './index';
 import {message} from 'antd';
+import uploadUrl from "../../../api/config";
+import {Buffer} from "buffer";
+import axios from "axios";
 
-export const writingHandle = (handle) => ({
-    type: constants.WRITING_HANDLE,
-    value: handle
+export const handleOk = (state) => {
+    return (dispatch) => {
+        const content = state.get('content');
+        const params = {
+            'author': 'author',
+            'title': state.get('title'),
+            'content': Buffer(content).toString('base64'),
+            'imageUrl': state.get('imageUrl'),
+            'imageUrlId': state.get('imageUrlId'),
+            'likes': 12
+        };
+        axios.post(uploadUrl.article_add, params).then(res => {
+            const result = res.data.data;
+            console.log(result);
+            dispatch(isHandleOk(result.id));
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+};
+
+const isHandleOk = () => ({
+    type: constants.RELEASE_ARTICLE,
+    value: true
+});
+
+export const titleHandleChange = (value) => ({
+    type: constants.ARTICLE_TITLE_HANDLE_CHANGE,
+    title: value
+});
+
+export const tagHandleCancel = (visible) => ({
+    type: constants.RELEASE_MODEL,
+    tagsModel: visible
 });
 
 export const releaseArticle = (visible) => ({
     type: constants.RELEASE_MODEL,
-    modelVisible: visible
+    tagsModel: visible
 });
 
-export const articleValue = (article) => ({
+export const articleValue = (content) => ({
     type: constants.ARTICLE_VALUE,
-    value: article
+    content: content
 });
 
-export const handleChangeState = (imageUrl, loading) => ({
+export const handleChangeState = (data, loading) => ({
     type: constants.ARTICLE_UPLOAD,
-    imageUrl: imageUrl,
+    imageUrl: data.imageUrl,
+    imageUrlId: data.id,
     loading: loading
 });
 
 export const handleChange = (info) => {
     return (dispatch) => {
-        console.log(info);
         if (info.file.status === 'uploading') {
             dispatch(handleChangeState('', true));
             return;
         }
         if (info.file.status === 'done') {
-            getBase64(info.file.originFileObj, imageUrl => dispatch(handleChangeState(imageUrl, false)));
+            dispatch(handleChangeState(info.file.response.data, false));
         }
     }
 };
 
-function getBase64(img, callback) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
-    reader.readAsDataURL(img);
-}
 
 export const beforeUpload = (file) => {
     // 检查图片类型

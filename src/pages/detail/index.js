@@ -16,7 +16,6 @@ const style={
 class Detail extends PureComponent {
     render() {
         const detail = this.props.detail.toJSON();
-        console.log(detail.content);
         return (
             <DetailWrapper>
                 <DetaliHeader>{detail.title}</DetaliHeader>

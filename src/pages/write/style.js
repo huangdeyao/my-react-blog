@@ -24,7 +24,7 @@ export const WriteCoverWrapper = styled.div`
 `;
 export const WriteTitleImg = styled.div`
     display: block;
-	width: 624px;
+	width: 628px;
 	height: 208px;
 	background: url(${(props) => props.imgUrl});
 	background-size: cover;
