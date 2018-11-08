@@ -36,11 +36,8 @@ const mapDispatch = (dispatch) => ({
     handleCancel() {
         dispatch(actionCreators.tagHandleCancel(false));
     },
-    handleOk(state) {
-        console.log(123123);
-        console.log(state);
-
-        // dispatch(actionCreators.handleOk());
+    handleOk() {
+        dispatch(actionCreators.handleOk());
         // dispatch(actionCreators.tagHandleCancel(false));
     }
 });

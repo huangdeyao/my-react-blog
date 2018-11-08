@@ -18,8 +18,8 @@ const defaultState = fromJS({
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        // case constants.RELEASE_ARTICLE:
-        //     return handleOk(state);
+        case constants.RELEASE_ARTICLE:
+            return handleOk(state);
         case constants.RELEASE_MODEL:
             return state.set('tagsModel', action.tagsModel);
         case constants.ARTICLE_VALUE:
@@ -41,26 +41,25 @@ const imageUpload = (state, action) => {
     });
 };
 
-// const handleOk = (state) => {
-//     // const content = state.get('content');
-//     // const params = {
-//     //     'author': 'author',
-//     //     'title': state.get('title'),
-//     //     'content': Buffer(content).toString('base64'),
-//     //     'imageUrl': state.get('imageUrl'),
-//     //     'imageUrlId': state.get('imageUrlId'),
-//     //     'likes': 12
-//     // };
-//     // axios.post(uploadUrl.article_add, params).then(res => {
-//     //     const result = res.data.data;
-//     //     console.log(result);
-//     //     return state.merge({
-//     //         release: true,
-//     //         articleId: result.id
-//     //     });
-//     // }).catch(error => {
-//     //     console.log(error);
-//     // });
-//
-//     return state.set('release', false);
-// };
+const handleOk = (state) => {
+    const content = state.get('content');
+    const params = {
+        'author': 'author',
+        'title': state.get('title'),
+        'content': Buffer(content).toString('base64'),
+        'imageUrl': state.get('imageUrl'),
+        'imageUrlId': state.get('imageUrlId'),
+        'likes': 12
+    };
+    axios.post(uploadUrl.article_add, params).then(res => {
+        const result = res.data.data;
+        console.log(result);
+        return state.merge({
+            release: true,
+            articleId: result.id
+        });
+    }).catch(error => {
+        console.log(error);
+        return state.set('release', false);
+    });
+};

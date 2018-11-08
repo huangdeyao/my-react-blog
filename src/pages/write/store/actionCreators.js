@@ -63,3 +63,11 @@ export const beforeUpload = (file) => {
     }
     return isJPG && isLt2M;
 };
+
+
+// export const handleOk = () => {
+//     return (dispatch,state) => {
+//        console.log(dispatch);
+//         console.log(state.get('write'))
+//     }
+// };
