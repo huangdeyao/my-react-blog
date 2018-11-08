@@ -16,7 +16,10 @@ const defaultState = fromJS({
 export default (state = defaultState, action) => {
     switch (action.type) {
         case constants.RELEASE_ARTICLE:
-            return state.set('release', action.value);
+            return state.merge({
+                release: fromJS(action.release),
+                articleId: fromJS(action.articleId)
+            });
         case constants.RELEASE_MODEL:
             return state.set('tagsModel', action.tagsModel);
         case constants.ARTICLE_VALUE:

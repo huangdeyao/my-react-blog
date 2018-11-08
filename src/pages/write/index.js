@@ -10,7 +10,7 @@ import {Redirect} from 'react-router-dom';
 class Index extends PureComponent {
     render() {
         const {releaseArticle, release, articleId} = this.props;
-        if (!release) {
+        // if (!release) {
             return (
                 <WriteHome>
                     <RichEditor/>
@@ -33,9 +33,9 @@ class Index extends PureComponent {
                     </ContainerFixed>
                 </WriteHome>
             )
-        } else {
-            return <Redirect to={'/detail/' + articleId}/>
-        }
+        // } else {
+        //     return <Redirect to={'/detail/' + articleId}/>
+        // }
 
     }
 }

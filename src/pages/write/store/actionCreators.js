@@ -15,19 +15,21 @@ export const handleOk = (state) => {
             'imageUrlId': state.get('imageUrlId'),
             'likes': 12
         };
-        axios.post(uploadUrl.article_add, params).then(res => {
-            const result = res.data.data;
-            console.log(result);
-            dispatch(isHandleOk(result.id));
-        }).catch(error => {
-            console.log(error);
-        });
+        console.log("***********");
+        // axios.post(uploadUrl.article_add, params).then(res => {
+        //     const result = res.data.data;
+        //     console.log(result);
+        //     dispatch(isHandleOk(result.id));
+        // }).catch(error => {
+        //     console.log(error);
+        // });
     }
 };
 
-const isHandleOk = () => ({
+const isHandleOk = (articleId) => ({
     type: constants.RELEASE_ARTICLE,
-    value: true
+    release: true,
+    articleId: articleId
 });
 
 export const titleHandleChange = (value) => ({
