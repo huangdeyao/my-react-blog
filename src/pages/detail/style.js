@@ -4,11 +4,37 @@ import styled from 'styled-components';
  * Detail
  */
 export const DetailWrapper = styled.div`
-  width: 640px;
-  margin: 0 auto;
-  overflow: hidden;
-  margin-bottom: 50px;
+    width: 1000px;
+    margin: 0 auto;
 `;
+
+export const ArticleLeft = styled.div`
+    float: left;
+    width: 694px;
+`;
+
+export const ArticleRight = styled.div`
+    width: 275px;
+    float: right;
+    background: #fff;
+`;
+
+
+export const DetailMain = styled.div`
+    margin: 20px 0 20px 0;
+    background: #fff;
+    padding: 15px;
+`;
+
+export const ArticleImage = styled.div`
+    margin: 0 auto;
+    display: block;
+	width: 640px;
+	height: 360px;
+	background: url(${(props) => props.imgUrl}) no-repeat;
+	background-size: 100%;
+`;
+
 
 export const DetaliHeader = styled.h1`
   font-size: 34px;
@@ -18,7 +44,6 @@ export const DetaliHeader = styled.h1`
 `;
 
 export const DetailAuthor = styled.div`
-  overflow: hidden;
   margin-bottom: 30px;
   .avatar {
     float: left;
@@ -30,9 +55,7 @@ export const DetailAuthor = styled.div`
 `;
 
 export const AuthorInfo = styled.div`
-  float: left;
-  margin-left: 10px;
-  margin-top: 5px;
+  padding-left:55px;
   .author {
     font-size: 16px;
     vertical-align: middle;

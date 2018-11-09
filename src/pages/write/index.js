@@ -5,7 +5,8 @@ import RichEditor from './common/RichEditor';
 import {actionCreators as writeActionCreators} from "./store";
 import {Tooltip} from 'antd';
 import ReleaseArtile from './common/ReleaseModal';
-import {Redirect} from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
+
 
 class Index extends PureComponent {
     render() {
@@ -55,4 +56,4 @@ const mapDispatch = (dispatch) => ({
     }
 });
 
-export default connect(mapState, mapDispatch)(Index);
+export default connect(mapState, mapDispatch)(withRouter(Index));

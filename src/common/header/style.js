@@ -16,9 +16,9 @@ export const AppHeaderInner = styled.div`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 1000px;
+    width: 1024px;
     height: 52px;
-    padding: 0 16px;
+    padding: 0 14px;
     margin: 0 auto;
     -webkit-box-align: center;
     -ms-flex-align: center;

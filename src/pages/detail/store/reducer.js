@@ -3,8 +3,16 @@ import * as constants from './constants';
 
 const defaultState = fromJS({
     article: {
-        title: "",
-        content: ""
+        author: "",
+        authorId: 0,
+        content: "",
+        createDate: "",
+        id: "",
+        imageUrl: "",
+        likes: 0,
+        tag: '',
+        thumbnailUrl: "",
+        title: ""
     }
 });
 
