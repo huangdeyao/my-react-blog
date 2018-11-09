@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import List from './common/List';
+import HomeList from './common/HomeList';
 import Recommend from './common/Recommend';
 import Topic from './common/Topic';
 import Writer from './common/Writer';
@@ -23,7 +23,7 @@ class Index extends PureComponent {
             <HomeWrapper>
                 <HomeLeft>
                     <Topic/>
-                    <List/>
+                    <HomeList/>
                 </HomeLeft>
                 <HomeRight>
                     <Recommend/>
