@@ -6,17 +6,6 @@ import {Link} from 'react-router-dom';
 import {List, Avatar, Icon} from 'antd';
 
 
-const listData = [];
-for (let i = 0; i < 23; i++) {
-    listData.push({
-        href: 'http://ant.design',
-        title: `ant design part ${i}`,
-        avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-        description: 'Ant Design',
-        content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-    });
-}
-
 const IconText = ({type, text}) => (
     <span>
     <Icon type={type} style={{marginRight: 8}}/>
@@ -28,34 +17,26 @@ class HomeList extends PureComponent {
 
     render() {
         const {articleList, getMoreList, page} = this.props;
+        const detail = articleList.toJSON();
         return (
-            <ListItem>
-                <List
-                    itemLayout="vertical"
-                    size="large"
-                    pagination={{
-                        onChange: (page) => {
-                            console.log(page);
-                        },
-                        pageSize: 10,
-                    }}
-                    dataSource={listData}
-                    footer={<div><b>ant design</b> footer part</div>}
-                    renderItem={item => (
-                        <List.Item
-                            key={item.title}
-                            actions={[<IconText type="star-o" text="156"/>, <IconText type="like-o" text="156"/>,<IconText type="message" text="2"/>]}
-                            extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>} >
-                            <List.Item.Meta
-                                avatar={<Avatar src={item.avatar}/>}
-                                title={<a href={item.href}>{item.title}</a>}
-                                description={item.description}
-                            />
-                            {item.content}
-                        </List.Item>
-                    )}
-                />
-            </ListItem>
+            <div>
+                {
+                    detail.map((item, index) => (
+                            <ListItem key={index}>
+                                <img className='pic'
+                                     src={item.imageUrl}
+                                     alt=""/>
+                                <ListInfo>
+                                    <Link to={'/detail/' + item.id}>
+                                        <h3 className='title'>{item.title}</h3>
+                                    </Link>
+                                    <p className='desc'>{item.des}</p>
+                                </ListInfo>
+                            </ListItem>
+                        )
+                    )
+                }
+            </div>
         )
     }
 }

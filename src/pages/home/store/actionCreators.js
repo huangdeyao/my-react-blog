@@ -1,11 +1,12 @@
 import axios from "axios/index";
 import {constants} from './index';
 import {fromJS} from 'immutable';
+import homeList from './../../../api/config';
 
 const changeHomeData = (result) => ({
     type: constants.CHANGE_HOME_DATA,
     topicList: result.topicList,
-    articleList: result.articleList,
+    articleList: result.content,
     recommendList: result.recommendList
 });
 
@@ -22,7 +23,7 @@ export const toggleTopShow = (show) => ({
 
 export const getHomeInfo = () => {
     return (dispatch) => {
-        axios.get('/api/home.json').then((res) => {
+        axios.get(homeList.article_get_all).then((res) => {
             const result = res.data.data;
             dispatch(changeHomeData(result));
         });

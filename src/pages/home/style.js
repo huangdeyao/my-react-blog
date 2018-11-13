@@ -64,7 +64,8 @@ export const TopstoryHeaderNavItem = styled.div`
 `;
 
 export const ListItem = styled.div`
-    padding: 20px;
+    margin-top:10px;
+    padding: 15px;
     background: #fff;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
@@ -79,7 +80,6 @@ export const ListItem = styled.div`
         display: block;
         width: 125px;
         height: 100px;
-        border-radius: 10px;
     }
 `;
 

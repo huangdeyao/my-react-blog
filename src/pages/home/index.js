@@ -22,13 +22,13 @@ class Index extends PureComponent {
         return (
             <HomeWrapper>
                 <HomeLeft>
-                    <Topic/>
+                    {/*<Topic/>*/}
                     <HomeList/>
                 </HomeLeft>
-                <HomeRight>
-                    <Recommend/>
-                    <Writer/>
-                </HomeRight>
+                {/*<HomeRight>*/}
+                    {/*<Recommend/>*/}
+                    {/*<Writer/>*/}
+                {/*</HomeRight>*/}
                 {this.props.showScroll ? <BackTop onClick={this.handleScrollTop}>顶部</BackTop> : null}
             </HomeWrapper>
         )

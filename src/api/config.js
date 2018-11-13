@@ -7,7 +7,7 @@
 const HOST = 'http://article.yrclubs.com';
 const URL = {
     //获取所有文章
-    article_get_all: HOST + '/api/get/article',
+    article_get_all: HOST + '/api/get/all/article',
     //新增
     article_add: HOST + '/api/add/article',
     // 文章上传

@@ -22,8 +22,8 @@ class Detail extends PureComponent {
     }
 
     componentDidMount() {
-        this.props.getDetail("2c9169fe66f3618c0166f4629f060009");
-        // this.props.getDetail(this.props.match.params.id);
+        // this.props.getDetail("2c9169fe66f3618c0166f4629f060009");
+        this.props.getDetail(this.props.match.params.id);
     }
 }
 
