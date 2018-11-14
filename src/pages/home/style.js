@@ -12,7 +12,7 @@ export const HomeLeft = styled.div`
 
 
 export const HomeRight = styled.div`
-    width: 280px;
+    width: 295px;
     float: right;
 `;
 
@@ -137,27 +137,60 @@ export const ItemToolslike = styled.div`
     }
 `;
 
-export const ListInfo = styled.div`
-    width: 520px;
-    .title {
-        line-height: 27px;
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-        cursor: pointer;
-    }
-    .desc {
-        line-height: 24px;
-        font-size: 13px;
-        color: #999;
+export const WriterContainer = styled.div`
+    margin-bottom: 10px;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    box-sizing: border-box;
+`;
+export const WriterNav = styled.div`
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+`;
+export const GlobalWriteNavItem = styled.div`
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 23px;
+    color: #444;
+    font-size: 16px;
+    .iconfont {
+        font-family: "iconfont" !important;
+        color: #8590a6;
+        margin-bottom: 6px;
+        width: 24;
+        height: 24;
     }
 `;
 
+export const GlobalWriteDraft = styled.div`
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top: 1px solid #f0f2f7;
+    color: #8590a6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 48px;
+    margin: 0 20px;
+`;
 export const RecommendWrapper = styled.div`
     margin: 30px 0;
     width: 280px;
 `;
-
 export const RecommendItem = styled.div`
     width: 280px;
     height: 50px;
@@ -165,6 +198,12 @@ export const RecommendItem = styled.div`
     background-size: contain;
 `;
 
+export const AdvertisementImg = styled.div`
+    width: 295px;
+    height: 194px;
+    background: url(${(props) => props.imgUrl}) no-repeat;
+    background-size: 100%;
+`;
 export const LoadMore = styled.div`
     width: 100%;
     height: 40px;
