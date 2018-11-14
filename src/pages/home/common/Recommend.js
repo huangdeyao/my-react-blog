@@ -9,7 +9,7 @@ class Recommend extends PureComponent {
         return (
             <RecommendWrapper>
                 {
-                    recommendList.map((item) => (<RecommendItem key={item.get("id")} imgUrl={item.get("imgUrl")}/>))
+                    // recommendList.map((item) => (<RecommendItem key={item.get("id")} imgUrl={item.get("imgUrl")}/>))
                 }
             </RecommendWrapper>
         )

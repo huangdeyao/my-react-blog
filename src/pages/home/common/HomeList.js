@@ -1,17 +1,8 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux';
-import {ListItem, ListInfo, LoadMore} from '../style';
 import {actionCreators} from "../store";
 import {Link} from 'react-router-dom';
-import {List, Avatar, Icon} from 'antd';
-
-
-const IconText = ({type, text}) => (
-    <span>
-    <Icon type={type} style={{marginRight: 8}}/>
-        {text}
-  </span>
-);
+import {ItemContainer, ItemTitle, ItemInfo, ItemImage, ItemDes, ItemTools, ItemToolslike} from '../style';
 
 class HomeList extends PureComponent {
 
@@ -21,18 +12,31 @@ class HomeList extends PureComponent {
         return (
             <div>
                 {
-                    detail.map((item, index) => (
-                            <ListItem key={index}>
-                                <img className='pic'
-                                     src={item.imageUrl}
-                                     alt=""/>
-                                <ListInfo>
-                                    <Link to={'/detail/' + item.id}>
-                                        <h3 className='title'>{item.title}</h3>
-                                    </Link>
-                                    <p className='desc'>{item.des}</p>
-                                </ListInfo>
-                            </ListItem>
+                    detail.map(item => (
+                            <ItemContainer key={item.id}>
+                                <Link to={'/detail/' + item.id}>
+                                    <ItemTitle>{item.title}</ItemTitle>
+                                </Link>
+                                <ItemInfo>
+                                    <ItemImage imgUrl={item.imageUrl}/>
+                                    <ItemDes>{item.des}</ItemDes>
+                                </ItemInfo>
+                                <ItemTools>
+                                    <div style={{marginRight: '20px'}}>{item.author}</div>
+                                    <ItemToolslike>
+                                        <i className="iconfont">&#xe743;</i>
+                                        12
+                                    </ItemToolslike>
+                                    <ItemToolslike>
+                                        <i className="iconfont">&#xe63b;</i>
+                                        12
+                                    </ItemToolslike>
+                                    <ItemToolslike>
+                                        <i className="iconfont">&#xe61c;</i>
+                                        12
+                                    </ItemToolslike>
+                                </ItemTools>
+                            </ItemContainer>
                         )
                     )
                 }
@@ -40,6 +44,7 @@ class HomeList extends PureComponent {
         )
     }
 }
+
 
 const mapSate = (state) => ({
     articleList: state.getIn(["home", "articleList"]),

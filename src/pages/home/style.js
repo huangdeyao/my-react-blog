@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
     width: 1000px;
-    margin: 0 auto;
+    margin: 10px auto;
 `;
 
 export const HomeLeft = styled.div`
@@ -45,6 +45,7 @@ export const TopstoryHeaderRightItem = styled.div`
 export const TopstoryHeaderNav = styled.div`
     display: block;
 `;
+
 export const TopstoryHeaderNavItem = styled.div`
     display: inline-block;
     transition: color .2s ease-in;
@@ -63,23 +64,76 @@ export const TopstoryHeaderNavItem = styled.div`
     }
 `;
 
-export const ListItem = styled.div`
-    margin-top:10px;
-    padding: 15px;
+export const ItemContainer = styled.div`
+    padding: 15px 30px;
     background: #fff;
-    overflow: hidden;
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
     border-bottom: 1px solid #f0f2f7;
+`;
+export const ItemTitle = styled.div`
+    font-size: 18px;
+    font-weight: 600;
+    font-synthesis: style;
+    line-height: 1.6;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+`;
+
+export const ItemInfo = styled.div`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    .pic {
-        display: block;
-        width: 125px;
-        height: 100px;
+`;
+
+export const ItemImage = styled.div`
+    position: relative;
+    width: 190px;
+    height: 105px;
+    margin-top: -2px;
+    margin-bottom: 4px;
+    float: left;
+    overflow: hidden;
+    background: url(${(props) => props.imgUrl}) no-repeat;
+    background-size: 100%;
+    border-radius: 4px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+`;
+
+export const ItemDes = styled.div`
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-left: 20px;
+    line-height: 24px;
+`;
+
+export const ItemTools = styled.div`
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 0 -20px -10px;
+    color: #646464;
+    clear: both;
+`;
+
+export const ItemToolslike = styled.div`
+    display: inline-block;
+    transition: color .2s ease-in;
+    padding: 0 8px;
+    text-align: center;
+    cursor: pointer;
+    .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 14px;
+        font-style: normal;
+        color: #8a8a8a;
+        margin-right: 5px;
     }
 `;
 
