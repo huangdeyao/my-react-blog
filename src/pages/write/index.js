@@ -13,6 +13,7 @@ class Index extends PureComponent {
         const {releaseArticle, release, articleId} = this.props;
         if (!release) {
             return (
+            if (!loginStatus) {
                 <WriteHome>
                     <RichEditor/>
                     <ContainerFixed>
@@ -33,6 +34,9 @@ class Index extends PureComponent {
                         </ContainerBtn>
                     </ContainerFixed>
                 </WriteHome>
+            } else {
+                return <Redirect to='/'/>
+            }
             )
         } else {
             return <Redirect to={'/detail/' + articleId}/>
