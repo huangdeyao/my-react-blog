@@ -6,7 +6,7 @@ const defaultState = fromJS({
     release: false,
     content: '',
     loading: false,
-    imageUrl: '',
+    imageUrl: 'http://huangdeyao-1251741670.cos.ap-chengdu.myqcloud.com/article/20181115042915275.jpg',
     imageUrlId: '',
     title: '',
     tags: [],

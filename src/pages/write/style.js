@@ -24,10 +24,11 @@ export const WriteCoverWrapper = styled.div`
 `;
 export const WriteTitleImg = styled.div`
     display: block;
-    width: 640px;
-	height: 360px;
-	background: url(${(props) => props.imgUrl});
-	background-size: cover;
+    height: 208px;
+    width: 600px;
+    line-height: 208px;
+    background: url(${(props) => props.imgUrl}) no-repeat;
+    background-size: 100% 100%;
 	cursor: pointer;
 	:hover{
        opacity: 0.5;
