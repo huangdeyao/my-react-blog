@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux';
 import {actionCreators} from "../store";
 import {Link} from 'react-router-dom';
-import {ItemContainer, ItemTitle, ItemInfo, ItemImage, ItemDes, ItemTools, ItemToolslike} from '../style';
+import {ItemContainer, ItemTitle, ItemInfo, ItemImage, ItemDes, ItemTools, ItemToolslike, LoadMore} from '../style';
 
 class HomeList extends PureComponent {
 
@@ -19,27 +19,28 @@ class HomeList extends PureComponent {
                                 </Link>
                                 <ItemInfo>
                                     <ItemImage imgUrl={item.imageUrl}/>
-                                    <ItemDes>{item.des}</ItemDes>
+                                    <ItemDes dangerouslySetInnerHTML={{__html: item.des}}/>
                                 </ItemInfo>
                                 <ItemTools>
                                     <div style={{marginRight: '20px'}}>{item.author}</div>
                                     <ItemToolslike>
                                         <i className="iconfont">&#xe743;</i>
-                                        12
+                                        {item.likes}
                                     </ItemToolslike>
                                     <ItemToolslike>
                                         <i className="iconfont">&#xe63b;</i>
-                                        12
+                                        200
                                     </ItemToolslike>
                                     <ItemToolslike>
                                         <i className="iconfont">&#xe61c;</i>
-                                        12
+                                        12000
                                     </ItemToolslike>
                                 </ItemTools>
                             </ItemContainer>
                         )
                     )
                 }
+                <LoadMore onClick={() => getMoreList(page)}>阅读更多</LoadMore>
             </div>
         )
     }

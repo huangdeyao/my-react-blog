@@ -76,7 +76,7 @@ export const ItemTitle = styled.div`
     font-synthesis: style;
     line-height: 1.6;
     color: #1a1a1a;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
 `;
 
 export const ItemInfo = styled.div`
@@ -208,7 +208,7 @@ export const LoadMore = styled.div`
     width: 100%;
     height: 40px;
     line-height: 40px;
-    background: #a5a5a5;
+    background: #0084ff;;
     text-align: center;
     border-radius: 20px;
     margin: 30px 0;

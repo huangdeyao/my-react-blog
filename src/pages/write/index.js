@@ -11,9 +11,6 @@ import {Redirect, withRouter} from 'react-router-dom';
 class Index extends PureComponent {
     render() {
         const {releaseArticle, release, articleId} = this.props;
-        console.log(123);
-        console.log(release);
-        console.log(articleId);
         if (!release) {
             return (
                 <WriteHome>

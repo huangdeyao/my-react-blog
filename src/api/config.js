@@ -5,6 +5,7 @@
  **/
 
 const HOST = 'http://article.yrclubs.com';
+// const HOST = 'http://localhost:8770';
 const URL = {
     //获取所有文章
     article_get_all: HOST + '/api/get/all/article',

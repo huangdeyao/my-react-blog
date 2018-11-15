@@ -1,10 +1,12 @@
 import React, {PureComponent} from 'react'
+import {Link} from 'react-router-dom';
 import {
     WriterContainer,
     WriterNav,
     GlobalWriteNavItem,
     GlobalWriteDraft
 } from "./../style";
+
 class Writer extends PureComponent {
     render() {
         return (
@@ -14,10 +16,12 @@ class Writer extends PureComponent {
                         <i className="iconfont">&#xe60b;</i>
                         <div>写回答</div>
                     </GlobalWriteNavItem>
-                    <GlobalWriteNavItem>
-                        <i className="iconfont">&#xe65e;</i>
-                        <div>写文章</div>
-                    </GlobalWriteNavItem>
+                    <Link to={'/write'}>
+                        <GlobalWriteNavItem>
+                            <i className="iconfont">&#xe65e;</i>
+                            <div>写文章</div>
+                        </GlobalWriteNavItem>
+                    </Link>
                     <GlobalWriteNavItem>
                         <i className="iconfont">&#xe638;</i>
                         <div>写想法</div>
