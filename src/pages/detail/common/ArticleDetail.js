@@ -9,9 +9,6 @@ import {
     DetaliHeader
 } from './../style';
 
-const style = {
-    border: '0',
-};
 
 class ArticleDetail extends PureComponent {
     render() {
@@ -28,9 +25,7 @@ class ArticleDetail extends PureComponent {
                     </AuthorInfo>
                 </DetailAuthor>
                 <DetaliHeader>{detail.title}</DetaliHeader>
-                <div className="simditor" style={style}>
-                    <div className="simditor-body" dangerouslySetInnerHTML={{__html: detail.content}}/>
-                </div>
+                    <div dangerouslySetInnerHTML={{__html: detail.content}}/>
             </DetailMain>
         )
     }

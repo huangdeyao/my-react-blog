@@ -10,45 +10,46 @@ import {Redirect, withRouter} from 'react-router-dom';
 
 class Index extends PureComponent {
     render() {
-        const {releaseArticle, release, articleId} = this.props;
-        if (!release) {
-            return (
-            if (!loginStatus) {
-                <WriteHome>
-                    <RichEditor/>
-                    <ContainerFixed>
-                        <ContainerBtn>
-                            <Tooltip placement="right" title="保存">
-                                <NavItem
-                                    onClick={releaseArticle}>
-                                    <i className="iconfont">&#xe62f;</i>
-                                </NavItem>
-                            </Tooltip>
-                            <ReleaseArtile/>
-                            <Tooltip placement="right" title="保存">
-                                <NavItem><i className="iconfont">&#xe6c4;</i></NavItem>
-                            </Tooltip>
-                            <Tooltip placement="right" title="预览">
-                                <NavItem><i className="iconfont">&#xe613;</i></NavItem>
-                            </Tooltip>
-                        </ContainerBtn>
-                    </ContainerFixed>
-                </WriteHome>
+        const {releaseArticle, release, articleId,loginStatus} = this.props;
+        console.log("==>" + loginStatus);
+        if (loginStatus) {
+            if (!release) {
+                return (
+                    <WriteHome>
+                        <RichEditor/>
+                        <ContainerFixed>
+                            <ContainerBtn>
+                                <Tooltip placement="right" title="保存">
+                                    <NavItem
+                                        onClick={releaseArticle}>
+                                        <i className="iconfont">&#xe62f;</i>
+                                    </NavItem>
+                                </Tooltip>
+                                <ReleaseArtile/>
+                                <Tooltip placement="right" title="保存">
+                                    <NavItem><i className="iconfont">&#xe6c4;</i></NavItem>
+                                </Tooltip>
+                                <Tooltip placement="right" title="预览">
+                                    <NavItem><i className="iconfont">&#xe613;</i></NavItem>
+                                </Tooltip>
+                            </ContainerBtn>
+                        </ContainerFixed>
+                    </WriteHome>
+                )
             } else {
-                return <Redirect to='/'/>
+                return <Redirect to={'/detail/' + articleId}/>
             }
-            )
-        } else {
-            return <Redirect to={'/detail/' + articleId}/>
+        }else {
+            return <Redirect to='/login'/>
         }
-
     }
 }
 
 
 const mapState = (state) => ({
     release: state.getIn(['write', 'release']),
-    articleId: state.getIn(['write', 'articleId'])
+    articleId: state.getIn(['write', 'articleId']),
+    loginStatus: state.getIn(['login', 'login'])
 });
 
 const mapDispatch = (dispatch) => ({

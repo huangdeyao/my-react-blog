@@ -1,62 +1,15 @@
 import React, {Component} from 'react';
-import Simditor from "simditor";
-import $ from "jquery";
 import RichEditorHeaderImg from './RichEditorHeaderImg';
 import {connect} from 'react-redux';
 import {LayoutMain, WriteIndexTitleInput, TextareaInput} from '../style';
 import {actionCreators} from "../../write/store";
-import uploadUrl from './../../../api/config'
-require("simditor/styles/simditor.css");
+// 引入编辑器组件
+import BraftEditor from 'braft-editor'
+// 引入编辑器样式
+import 'braft-editor/dist/index.css'
+
 
 class RichEditor extends Component {
-
-    initEditor = () => {
-        let config = {
-            border: '0',
-            defaultImage: 'images/image.png',
-            params: {},
-            tabIndent: true,
-            toolbar: [
-                'title',
-                'bold',
-                'italic',
-                'underline',
-                'strikethrough',
-                'fontScale',
-                'color',
-                'ol',
-                'ul',
-                'blockquote',
-                'code',
-                'table',
-                'link',
-                'image',
-                'hr',
-                'alignment',
-            ],
-            upload: {
-                url: uploadUrl.article_homepage_image_upload, //文件上传的接口地址
-                params: {
-                    appid: 'id',
-                    secret: 'xxx',
-                }, //键值对,指定文件上传接口的额外参数,上传的时候随文件一起提交
-                fileKey: 'file', //服务器端获取文件数据的参数名
-                connectionCount: 3,
-                leaveConfirm: '正在上传文件',
-            },
-            toolbarFloat: true,
-            toolbarFloatOffset: 0,
-            toolbarHidden: false,
-            pasteImage: false,
-            cleanPaste: false,
-            textarea: $(this.refs.textarea)
-        };
-        this.editor = new Simditor(config);
-        this.editor.on('valuechanged', () => {
-            this.getValue()
-        })
-    };
-
     render() {
         const {titleHandleChange} = this.props;
         return (
@@ -65,20 +18,12 @@ class RichEditor extends Component {
                 <WriteIndexTitleInput>
                     <TextareaInput placeholder="请输入标题（最多 50 个字）" onChange={titleHandleChange}/>
                 </WriteIndexTitleInput>
-                <textarea
-                    id={this.props.id}
-                    ref="textarea"/>
+                <div>
+                    <BraftEditor/>
+                </div>
             </LayoutMain>
         )
     }
-
-    componentDidMount() {
-        this.initEditor();
-    };
-
-    getValue() {
-        this.props.getValue(this.editor.getValue().trim());
-    };
 }
 
 const mapState = (state) => ({});
