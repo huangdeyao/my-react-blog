@@ -38,16 +38,16 @@ export const WriteIndexTitleInput = styled.div`
     margin: 16px 0;
     display: flex;
     background: #fff;
-    border-radius: 3px;
     box-sizing: border-box;
     border: 0;
-    padding: 0;
+    padding: 5px;
     font-size: 32px;
-    min-height: 44px;
-    height: 44px;
+    min-height: 50px;
+    height: 50px;
     width: 100%;
     position: relative;
     transition: background .2s,border .2s;
+    border-bottom: 1px solid #6666;
 `;
 export const TextareaInput = styled.textarea`
     flex: 1;

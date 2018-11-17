@@ -17,23 +17,23 @@ class Index extends PureComponent {
                 return (
                     <WriteHome>
                         <RichEditor/>
-                        <ContainerFixed>
-                            <ContainerBtn>
-                                <Tooltip placement="right" title="保存">
-                                    <NavItem
-                                        onClick={releaseArticle}>
-                                        <i className="iconfont">&#xe62f;</i>
-                                    </NavItem>
-                                </Tooltip>
-                                <ReleaseArtile/>
-                                <Tooltip placement="right" title="保存">
-                                    <NavItem><i className="iconfont">&#xe6c4;</i></NavItem>
-                                </Tooltip>
-                                <Tooltip placement="right" title="预览">
-                                    <NavItem><i className="iconfont">&#xe613;</i></NavItem>
-                                </Tooltip>
-                            </ContainerBtn>
-                        </ContainerFixed>
+                        {/*<ContainerFixed>*/}
+                            {/*<ContainerBtn>*/}
+                                {/*<Tooltip placement="right" title="保存">*/}
+                                    {/*<NavItem*/}
+                                        {/*onClick={releaseArticle}>*/}
+                                        {/*<i className="iconfont">&#xe62f;</i>*/}
+                                    {/*</NavItem>*/}
+                                {/*</Tooltip>*/}
+                                {/*<ReleaseArtile/>*/}
+                                {/*<Tooltip placement="right" title="保存">*/}
+                                    {/*<NavItem><i className="iconfont">&#xe6c4;</i></NavItem>*/}
+                                {/*</Tooltip>*/}
+                                {/*<Tooltip placement="right" title="预览">*/}
+                                    {/*<NavItem><i className="iconfont">&#xe613;</i></NavItem>*/}
+                                {/*</Tooltip>*/}
+                            {/*</ContainerBtn>*/}
+                        {/*</ContainerFixed>*/}
                     </WriteHome>
                 )
             } else {
