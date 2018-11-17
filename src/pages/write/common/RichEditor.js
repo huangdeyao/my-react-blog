@@ -14,7 +14,6 @@ class RichEditor extends Component {
         const {titleHandleChange} = this.props;
         return (
             <LayoutMain>
-                {/*<RichEditorHeaderImg/>*/}
                 <WriteIndexTitleInput>
                     <TextareaInput placeholder="请输入标题（最多 50 个字）" onChange={titleHandleChange}/>
                 </WriteIndexTitleInput>

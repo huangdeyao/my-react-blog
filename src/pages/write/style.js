@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const WriteHome = styled.div`
-    min-height: 1200px;
+   overflow: hidden;
 `;
 export const LayoutMain = styled.div`
     background: #fff;
@@ -40,20 +40,19 @@ export const WriteIndexTitleInput = styled.div`
     background: #fff;
     box-sizing: border-box;
     border: 0;
-    padding: 5px;
     font-size: 32px;
     min-height: 50px;
+    padding: 5px;
     height: 50px;
     width: 100%;
     position: relative;
     transition: background .2s,border .2s;
-    border-bottom: 1px solid #6666;
+    border-bottom: 0.3px solid #8a8a8a;
 `;
 export const TextareaInput = styled.textarea`
     flex: 1;
     height: 44px;
     color: #1a1a1a;
-    padding: 0;
     overflow: hidden;
     font-family: inherit;
     font-size: inherit;

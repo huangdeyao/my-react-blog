@@ -6,7 +6,6 @@ export const AppHeader = styled.div`
     z-index: 100;
     min-width: 1032px;
     overflow: hidden;
-    background: #fff;
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
     background-clip: content-box;
 `;
@@ -53,7 +52,7 @@ export const AppHeaderUserInfo = styled.div`
 `;
 
 export const NavItem = styled.div`
-  margin-right: 40px;
+  margin-right: 25px;
   cursor: pointer;
     .iconfont {
         font-family: "iconfont" !important;
@@ -73,4 +72,10 @@ export const AppHeaderProfileEntry = styled.div`
      background-size: contain;
      width: 30px;
      height: 30px;
+`;
+
+export const titleTip = styled.div`
+    color: #666;
+    padding: 0;
+    background: transparent;
 `;
