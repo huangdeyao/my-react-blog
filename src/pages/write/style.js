@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const WriteHome = styled.div`
-   overflow: hidden;
+   overflow: auto;
 `;
 export const LayoutMain = styled.div`
     background: #fff;

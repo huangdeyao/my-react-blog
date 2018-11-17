@@ -17,7 +17,7 @@ class RichEditor extends Component {
                 <WriteIndexTitleInput>
                     <TextareaInput placeholder="请输入标题（最多 50 个字）" onChange={titleHandleChange}/>
                 </WriteIndexTitleInput>
-                    <BraftEditor/>
+                <BraftEditor contentStyle={{height: 'auto', minHeight: 500}}/>
             </LayoutMain>
         )
     }
