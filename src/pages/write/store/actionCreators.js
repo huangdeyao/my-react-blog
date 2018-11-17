@@ -57,6 +57,17 @@ export const handleChangeState = (data, loading) => ({
     loading: loading
 });
 
+export const handleWriting = () => ({
+    type: constants.HANDLE_WRITING,
+    writing: true
+});
+
+export const handleWritten = () => ({
+    type: constants.HANDLE_WRITTEN,
+    writing: false
+});
+
+
 export const handleChange = (info) => {
     return (dispatch) => {
         if (info.file.status === 'uploading') {

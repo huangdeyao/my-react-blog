@@ -12,7 +12,7 @@ class Index extends PureComponent {
     render() {
         const {releaseArticle, release, articleId,loginStatus} = this.props;
         console.log("==>" + loginStatus);
-        if (loginStatus) {
+        // if (loginStatus) {
             if (!release) {
                 return (
                     <WriteHome>
@@ -39,9 +39,17 @@ class Index extends PureComponent {
             } else {
                 return <Redirect to={'/detail/' + articleId}/>
             }
-        }else {
-            return <Redirect to='/login'/>
-        }
+        // }else {
+        //     return <Redirect to='/login'/>
+        // }
+    }
+
+    componentDidMount(){
+        this.props.handleWriting();
+    }
+
+    componentWillUnmount(){
+        this.props.handleWritten();
     }
 }
 
@@ -55,6 +63,12 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch) => ({
     releaseArticle() {
         dispatch(writeActionCreators.releaseArticle(true));
+    },
+    handleWriting(){
+        dispatch(writeActionCreators.handleWriting());
+    },
+    handleWritten(){
+        dispatch(writeActionCreators.handleWritten());
     }
 });
 

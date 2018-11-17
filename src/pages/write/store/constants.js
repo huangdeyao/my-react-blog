@@ -3,3 +3,5 @@ export const RELEASE_ARTICLE = 'write/release_article';
 export const RELEASE_MODEL = 'write/release_model';
 export const ARTICLE_UPLOAD = 'write/article_upload';
 export const ARTICLE_TITLE_HANDLE_CHANGE = 'write/article_title_handle_change';
+export const HANDLE_WRITING = 'write/handle_writing';
+export const HANDLE_WRITTEN = 'write/handle_written';

@@ -3,6 +3,7 @@ import {constants} from './index';
 
 
 const defaultState = fromJS({
+    writing: false,
     release: false,
     content: '',
     loading: false,
@@ -29,6 +30,10 @@ export default (state = defaultState, action) => {
             return state.set('title', action.title);
         case constants.ARTICLE_UPLOAD:
             return imageUpload(state, action);
+        case constants.HANDLE_WRITING:
+            return state.set('writing', action.writing);
+        case constants.HANDLE_WRITTEN:
+            return state.set('writing', action.writing);
         default:
             return state;
     }
