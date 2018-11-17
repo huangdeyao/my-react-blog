@@ -10,7 +10,7 @@ class RichEditor extends Component {
         return (
             <LayoutMain>
                 <BraftEditor
-                    contentStyle={{height: 'auto', minHeight: 200}}
+                    contentStyle={{height: 'auto', minHeight: 600}}
                 />
             </LayoutMain>
         )
