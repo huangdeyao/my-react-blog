@@ -59,7 +59,7 @@ const props = {
 
 const upload = (
     <Dragger {...props}>
-        <div style={{width: 200}}>
+        <div style={{width: 150}}>
             <p className="ant-upload-drag-icon">
                 <Icon type="inbox"/>
             </p>
