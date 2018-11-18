@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Button, Avatar, Icon, Popover, Upload, message} from 'antd';
+import userImage from './../../statics/2.jpeg';
+import uploadUrl from './../../api/config';
 import {
     AppHeader,
     AppHeaderInner,
@@ -13,7 +15,6 @@ import {
     TagContiner,
     TagsBtn
 } from "./style";
-import userImage from './../../statics/2.jpeg';
 
 const Dragger = Upload.Dragger;
 
@@ -42,9 +43,10 @@ const content = (
 
 const props = {
     name: 'file',
-    multiple: true,
-    action: '//jsonplaceholder.typicode.com/posts/',
+    multiple: false,
+    action: uploadUrl.article_homepage_image_upload,
     onChange(info) {
+        console.log(info);
         const status = info.file.status;
         if (status !== 'uploading') {
             console.log(info.file, info.fileList);
@@ -59,13 +61,12 @@ const props = {
 
 const upload = (
     <Dragger {...props}>
-        <div style={{width: 150}}>
+        <div style={{width: 200}}>
             <p className="ant-upload-drag-icon">
                 <Icon type="inbox"/>
             </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company
-                data or other band files</p>
+            <p className="ant-upload-text">上传缩略图</p>
+            <p className="ant-upload-hint">支持拖拉</p>
         </div>
     </Dragger>
 );
