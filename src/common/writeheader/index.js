@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {Button, Avatar, Menu, Dropdown, Icon} from 'antd';
+import {Button, Avatar, Icon, Popover} from 'antd';
 import {
     AppHeader,
     AppHeaderInner,
@@ -9,7 +9,10 @@ import {
     AppHeaderUserInfo,
     NavItem,
     AppHeaderProfileEntry,
-    titleTip
+    TitleTip,
+    TagContiner,
+    TagsBtn,
+    releaseBtn
 } from "./style";
 import userImage from './../../statics/2.jpeg';
 
@@ -21,18 +24,19 @@ const draft = {
 const avatarStyle = {
     marginLeft: '25px'
 };
-
-const menu = (
-    <Menu>
-        <Menu.Item key="0">
-            <a href="http://www.alipay.com/">1st menu item</a>
-        </Menu.Item>
-        <Menu.Item key="1">
-            <a href="http://www.taobao.com/">2nd menu item</a>
-        </Menu.Item>
-        <Menu.Divider/>
-        <Menu.Item key="3">3rd menu item</Menu.Item>
-    </Menu>
+const text = <span>选择分类</span>;
+const content = (
+    <TagContiner>
+        <TagsBtn>
+            <Button style={{margin: 5}}>android</Button>
+            <Button style={{margin: 5}}>前端</Button>
+            <Button style={{margin: 5}}>服务器</Button>
+            <Button style={{margin: 5}}>服务服</Button>
+            <Button style={{margin: 5}}>服务服务器器</Button>
+            <Button style={{margin: 5}}>服务器服务器</Button>
+        </TagsBtn>
+            <Button type="primary" block>确认并发布</Button>
+    </TagContiner>
 );
 
 
@@ -45,14 +49,14 @@ class Index extends Component {
                         <Logo/>
                     </Link>
                     <AppHeaderUserInfo>
-                        <titleTip>文章会自动保存到</titleTip>
+                        <TitleTip>文章会自动保存到</TitleTip>
                         <Button size="small" type="dashed" style={draft}>草稿</Button>
                         <NavItem><i className="iconfont">&#xe672;</i></NavItem>
-                        <Dropdown overlay={menu} trigger={['click']}>
+                        <Popover placement="bottom" title={text} content={content} trigger="click">
                             <a className="ant-dropdown-link" href="#">
                                 发布 <Icon type="down"/>
                             </a>
-                        </Dropdown>
+                        </Popover>
                         <Avatar src={userImage} style={avatarStyle}/>
                         <AppHeaderProfileEntry/>
                     </AppHeaderUserInfo>

@@ -74,8 +74,19 @@ export const AppHeaderProfileEntry = styled.div`
      height: 30px;
 `;
 
-export const titleTip = styled.div`
+export const TitleTip = styled.div`
     color: #666;
     padding: 0;
     background: transparent;
 `;
+
+export const TagContiner = styled.div`
+    width: 336px;
+`;
+
+export const TagsBtn = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+`;
+
