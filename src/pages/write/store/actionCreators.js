@@ -7,13 +7,15 @@ import axios from "axios";
 export const handleOk = (state) => {
     return (dispatch) => {
         const content = state.get('content');
+        console.log(content);
         const params = {
             'author': 'author',
             'title': state.get('title'),
             'content': Buffer(content).toString('base64'),
             'imageUrl': state.get('imageUrl'),
             'imageUrlId': state.get('imageUrlId'),
-            'likes': 12
+            'likes': 12,
+            'tag': state.getIn(['header', 'tagName'])
         };
         axios.post(ArticleAdd.article_add, params).then(res => {
             const result = res.data.data;

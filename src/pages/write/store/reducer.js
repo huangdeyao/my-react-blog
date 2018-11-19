@@ -1,11 +1,10 @@
 import {fromJS} from 'immutable';
 import {constants} from './index';
-
-
+import BraftEditor from 'braft-editor'
 const defaultState = fromJS({
     writing: false,
     release: false,
-    content: '',
+    content: BraftEditor.createEditorState(),
     loading: false,
     imageUrl: '',
     imageUrlId: '',

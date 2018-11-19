@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import {Button} from 'antd';
 import {TagContiner, TagsBtn} from "./../style";
 import {actionCreators} from './../../header/store';
+import {actionCreators as writeActionCreators} from './../../../pages/write/store';
 
 class WriteTags extends PureComponent {
     render() {
-        const {tagsList, handleTagBtn} = this.props;
+        const {tagsList, handleTagBtn,tagName,handleOk,mState} = this.props;
         return (
             <TagContiner>
                 <TagsBtn>
@@ -21,7 +22,7 @@ class WriteTags extends PureComponent {
                         ))
                     }
                 </TagsBtn>
-                <Button type="primary" block>确认并发布</Button>
+                <Button type="primary" block  onClick={() => handleOk(mState)}>确认并发布</Button>
             </TagContiner>
         )
     }
@@ -34,7 +35,8 @@ class WriteTags extends PureComponent {
 }
 
 const mapState = (state) => ({
-    tagsList: state.getIn(['header', 'tagsList'])
+    tagsList: state.getIn(['header', 'tagsList']),
+    mState: state
 });
 
 const mapDispatch = (dispatch) => ({
@@ -43,6 +45,9 @@ const mapDispatch = (dispatch) => ({
     },
     handleTagBtn(tagName) {
         dispatch(actionCreators.handleTagBtn(tagName))
+    },
+    handleOk(mState) {
+        dispatch(writeActionCreators.handleOk(mState))
     }
 });
 

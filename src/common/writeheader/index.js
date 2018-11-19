@@ -12,9 +12,7 @@ import {
     AppHeaderUserInfo,
     NavItem,
     AppHeaderProfileEntry,
-    TitleTip,
-    TagContiner,
-    TagsBtn
+    TitleTip
 } from "./style";
 
 const draft = {
