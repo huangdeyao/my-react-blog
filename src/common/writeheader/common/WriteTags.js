@@ -27,7 +27,9 @@ class WriteTags extends PureComponent {
     }
 
     componentDidMount() {
-        this.props.tagsData();
+        if(this.props.tagsList == null){
+            this.props.tagsData();
+        }
     };
 }
 

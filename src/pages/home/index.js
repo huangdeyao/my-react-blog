@@ -4,6 +4,7 @@ import Recommend from './common/Recommend';
 import Writer from './common/Writer';
 import Advertisement from './common/Advertisement';
 import {actionCreators} from './store';
+import {actionCreators as headerActionCreators} from './../../common/header/store';
 import {connect} from 'react-redux';
 import {Tabs, BackTop} from 'antd';
 import {StickyContainer, Sticky} from 'react-sticky';
@@ -25,14 +26,20 @@ const renderTabBar = (props, DefaultTabBar) => (
 
 class Index extends PureComponent {
     render() {
+        const {tagsList} = this.props;
         return (
             <HomeWrapper>
                 <HomeLeft>
                     <StickyContainer>
                         <Tabs defaultActiveKey="1" renderTabBar={renderTabBar} onChange={callback}>
-                            <TabPane tab="Tab 1" key="1"> <HomeList/></TabPane>
-                            <TabPane tab="Tab 2" key="2"> <HomeList/></TabPane>
-                            <TabPane tab="Tab 3" key="3"> <HomeList/></TabPane>
+                            {
+                                tagsList.map(item => (
+                                    <TabPane tab={item.tagsName} key={item.id}
+                                             style={{marginRight: '0px'}}>
+                                        <HomeList/>
+                                    </TabPane>
+                                ))
+                            }
                         </Tabs>
                     </StickyContainer>
                 </HomeLeft>
@@ -57,9 +64,11 @@ function callback(key) {
 
 const mapState = (state) => ({
     showScroll: state.getIn(['home', 'showScroll']),
+    tagsList: state.getIn(['header', 'tagsList'])
 });
 const mapDispatch = (dispatch) => ({
     changeHomeData() {
+        dispatch(headerActionCreators.getTagsData())
         dispatch(actionCreators.getHomeInfo())
     },
     changeScrollShow() {
@@ -68,7 +77,6 @@ const mapDispatch = (dispatch) => ({
         } else {
             dispatch(actionCreators.toggleTopShow(false))
         }
-
     }
 });
 

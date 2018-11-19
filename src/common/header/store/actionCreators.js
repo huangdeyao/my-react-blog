@@ -18,7 +18,6 @@ export const getTagsData = () => {
     return (dispatch) => {
         axios.get(homeList.article_get_tags).then((res) => {
             const result = res.data.data;
-            console.log(result);
             dispatch(tagsData(result));
         });
     }

@@ -18,11 +18,9 @@ axios.interceptors.request.use(
     // console.log(token)
     // console.log(Util.isEmpty(token))
     if (Util.isEmpty(token)) {
-      console.log('=token====urlencoded=======>' + token)
       config.auth = {username: 'devglan-client', password: 'devglan-secret'}
       config.headers = {'Content-type': 'application/x-www-form-urlencoded; charset=utf-8'}
     } else {
-      console.log('=token=====json======>' + token)
       // config.headers = {'Content-type': 'application/json; charset=utf-8'}
     }
     return config
@@ -38,7 +36,6 @@ axios.interceptors.response.use(
   },
   error => {
     if (error && error.response) {
-      console.log('-----status-------->' + error.response.status)
       switch (error.response.status) {
         case 400:
           error.message = '请求错误'
@@ -93,7 +90,6 @@ axios.interceptors.response.use(
 
         default:
       }
-      console.log('-----error.message-------->', error.message)
       const messageConf = {
         showClose: true,
         message: error.message,
@@ -115,24 +111,19 @@ axios.interceptors.response.use(
 )
 // 刷新token的请求方法
 function refreshToken () {
-  console.log('-------------')
-  console.log(store.state.user)
-  console.log('token----' + store.state.user.token)
-  console.log('refreshToken-----' + store.state.user.refreshToken)
   let params = new URLSearchParams()
   params.append('grant_type', 'refresh_token')
   params.append('refresh_token', store.state.user.refreshToken)
   let url = '/oauth/token'
   store.state.user.token = ''
   axios.post(url, params).then(res => {
-    console.log('-------succes--------')
     store.state.user.token = res.data.access_token
     store.state.user.refreshToken = res.data.refresh_token
     // console.log('-------succes----token----' + store.state.user.token)
     // console.log('-------succes----token----' + store.state.user.refreshToken)
   }).catch(error => {
     // console.log('------axios-----error-->' + error.response.status)
-    console.log(error)
+    // console.log(error)
     router.replace({
       name: 'login',
       query: {
@@ -152,8 +143,6 @@ export default {
       axios.get(url, params).then(res => {
         resolve(res.data)
       }).catch(error => {
-        console.log('------fetchGet-----error')
-        console.log(error)
         reject(error)
       })
     })
@@ -163,15 +152,12 @@ export default {
     if (token !== '') {
       url = url + '?access_token=' + token
     }
-    console.log(url)
 
     // console.log('============>' + token)
     return new Promise((resolve, reject) => {
       axios.post(url, params).then(res => {
         resolve(res)
       }).catch(error => {
-        console.log('------fetchPost-----error')
-        console.log(error)
         reject(error)
       })
     })
@@ -181,7 +167,6 @@ export default {
     if (token !== '') {
       url = url + '?access_token=' + token
     }
-    console.log(url)
     // console.log('============>' + token)
     return new Promise((resolve, reject) => {
       let config = {
@@ -191,8 +176,6 @@ export default {
       axios.post(url, params, config).then(res => {
         resolve(res)
       }).catch(error => {
-        console.log('------fetchPost-----error')
-        console.log(error)
         reject(error)
       })
     })

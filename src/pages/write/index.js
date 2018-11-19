@@ -11,7 +11,7 @@ import {Redirect, withRouter} from 'react-router-dom';
 class Index extends PureComponent {
     render() {
         const {releaseArticle, release, articleId,loginStatus} = this.props;
-        console.log("==>" + loginStatus);
+        // console.log("==>" + loginStatus);
         // if (loginStatus) {
             if (!release) {
                 return (
