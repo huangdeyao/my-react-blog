@@ -6,14 +6,14 @@ import axios from "axios";
 
 export const handleOk = (state) => {
     return (dispatch) => {
-        const content = state.get('content');
+        const content = state.getIn(['write', 'content']);
         console.log(content);
         const params = {
             'author': 'author',
-            'title': state.get('title'),
+            'title': state.getIn(['write', 'title']),
             'content': Buffer(content).toString('base64'),
-            'imageUrl': state.get('imageUrl'),
-            'imageUrlId': state.get('imageUrlId'),
+            'imageUrl': state.getIn(['write', 'imageUrl']),
+            'imageUrlId': state.getIn(['write', 'imageUrlId']),
             'likes': 12,
             'tag': state.getIn(['header', 'tagName'])
         };
