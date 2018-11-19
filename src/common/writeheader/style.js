@@ -52,17 +52,23 @@ export const AppHeaderUserInfo = styled.div`
 `;
 
 export const NavItem = styled.div`
-  margin-right: 25px;
-  cursor: pointer;
+    margin-right: 25px;
+    cursor: pointer;
     .iconfont {
         font-family: "iconfont" !important;
         font-size: 22px;
         font-style: normal;
         color: #8a8a8a;
         :hover{
-            color:#0084ff!important;      
+            color:#0084ff!important;
         }
-     }
+    }
+    .iconfontHover {
+        font-family: "iconfont" !important;
+        font-size: 22px;
+        font-style: normal;
+        color: #0084ff;
+    }
 `;
 
 export const AppHeaderProfileEntry = styled.div`
@@ -81,7 +87,7 @@ export const TitleTip = styled.div`
 `;
 
 export const TagContiner = styled.div`
-    width: 336px;
+    width: 250px;
 `;
 
 export const TagsBtn = styled.div`

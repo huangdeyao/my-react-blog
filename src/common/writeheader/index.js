@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {Button, Avatar, Icon, Popover, Upload, message} from 'antd';
+import {Button, Avatar, Icon, Popover} from 'antd';
 import userImage from './../../statics/2.jpeg';
-import uploadUrl from './../../api/config';
+import RichEditorHeaderImg from './../../pages/write/common/RichEditorHeaderImg';
+import WriteTags from './common/WriteTags';
 import {
     AppHeader,
     AppHeaderInner,
@@ -16,8 +17,6 @@ import {
     TagsBtn
 } from "./style";
 
-const Dragger = Upload.Dragger;
-
 const draft = {
     backgroundColor: 'transparent',
     marginRight: '25px',
@@ -27,53 +26,13 @@ const avatarStyle = {
     marginLeft: '25px'
 };
 const text = <span>选择分类</span>;
-const content = (
-    <TagContiner>
-        <TagsBtn>
-            <Button style={{margin: 5}}>android</Button>
-            <Button style={{margin: 5}}>前端</Button>
-            <Button style={{margin: 5}}>服务器</Button>
-            <Button style={{margin: 5}}>服务服</Button>
-            <Button style={{margin: 5}}>服务服务器器</Button>
-            <Button style={{margin: 5}}>服务器服务器</Button>
-        </TagsBtn>
-        <Button type="primary" block>确认并发布</Button>
-    </TagContiner>
-);
-
-const props = {
-    name: 'file',
-    multiple: false,
-    action: uploadUrl.article_homepage_image_upload,
-    onChange(info) {
-        console.log(info);
-        const status = info.file.status;
-        if (status !== 'uploading') {
-            console.log(info.file, info.fileList);
-        }
-        if (status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully.`);
-        } else if (status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-        }
-    },
-};
-
-const upload = (
-    <Dragger {...props}>
-        <div style={{width: 200}}>
-            <p className="ant-upload-drag-icon">
-                <Icon type="inbox"/>
-            </p>
-            <p className="ant-upload-text">上传缩略图</p>
-            <p className="ant-upload-hint">支持拖拉</p>
-        </div>
-    </Dragger>
-);
+const content = (<WriteTags/>);
+const upload = (<RichEditorHeaderImg/>);
 
 
 class Index extends Component {
     render() {
+        const {imageUrl} = this.props;
         return (
             <AppHeader>
                 <AppHeaderInner>
@@ -84,7 +43,12 @@ class Index extends Component {
                         <TitleTip>文章会自动保存到</TitleTip>
                         <Button size="small" type="dashed" style={draft}>草稿</Button>
                         <Popover placement="bottom" content={upload} trigger="click">
-                            <NavItem><i className="iconfont">&#xe672;</i></NavItem>
+                            <NavItem>
+                                {
+                                    imageUrl ? <i className="iconfontHover">&#xe672;</i> :
+                                        <i className="iconfont">&#xe672;</i>
+                                }
+                            </NavItem>
                         </Popover>
                         <Popover placement="bottom" title={text} content={content} trigger="click">
                             <a className="ant-dropdown-link" href="#">
@@ -100,7 +64,9 @@ class Index extends Component {
     }
 }
 
-const initMapStateToProps = (state) => ({});
+const initMapStateToProps = (state) => ({
+    imageUrl: state.getIn(['write', 'imageUrl'])
+});
 
 const initMapDispatchToProps = (dispatch) => ({});
 

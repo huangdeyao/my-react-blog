@@ -1,6 +1,6 @@
 import {constants} from './index';
 import {message} from 'antd';
-import uploadUrl from "../../../api/config";
+import ArticleAdd from "../../../api/config";
 import {Buffer} from "buffer";
 import axios from "axios";
 
@@ -15,7 +15,7 @@ export const handleOk = (state) => {
             'imageUrlId': state.get('imageUrlId'),
             'likes': 12
         };
-        axios.post(uploadUrl.article_add, params).then(res => {
+        axios.post(ArticleAdd.article_add, params).then(res => {
             const result = res.data.data;
             dispatch(isHandleOk(result.id));
         }).catch(error => {
@@ -99,11 +99,3 @@ export const beforeUpload = (file) => {
     }
     return isJPG && isLt2M;
 };
-
-
-// export const handleOk = () => {
-//     return (dispatch,state) => {
-//        console.log(dispatch);
-//         console.log(state.get('write'))
-//     }
-// };

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {WriteCoverWrapper, WriteTitleImg} from '../style';
 import {Upload, Icon} from 'antd';
 import {connect} from 'react-redux';
 import {actionCreators} from '../../write/store';
@@ -15,7 +14,7 @@ class RichEditorHeaderImg extends Component {
             </div>
         );
         return (
-            <WriteCoverWrapper>
+            <div>
                 <Upload
                     name="file"
                     listType="picture-card"
@@ -27,16 +26,17 @@ class RichEditorHeaderImg extends Component {
                 >
                     {
                         imageUrl ?
-                            <WriteTitleImg
+                            <img
+                                style={{width: 96, height: 96}}
                                 onMouseOver={handleMouseUserOver}
                                 onMouseLeave={handleMouseOut}
-                                imgUrl={imageUrl}
+                                src={imageUrl}
                                 alt="avatar"
                             />
                             : uploadButton
                     }
                 </Upload>
-            </WriteCoverWrapper>
+            </div>
         )
     }
 }

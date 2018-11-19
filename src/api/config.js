@@ -14,6 +14,8 @@ const URL = {
     // 文章上传
     article_homepage_image_upload: HOST + '/api/image/upload',
     // 文章上传
-    article_get_details: HOST + '/api/get/article/details?id='
+    article_get_details: HOST + '/api/get/article/details?id=',
+    // 获取标签
+    article_get_tags: HOST + '/api/get/article/tags',
 };
 export default URL
