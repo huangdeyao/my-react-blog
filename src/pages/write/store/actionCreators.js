@@ -4,10 +4,11 @@ import ArticleAdd from "../../../api/config";
 import {Buffer} from "buffer";
 import axios from "axios";
 
+
 export const handleOk = (state) => {
+
     return (dispatch) => {
         const content = state.getIn(['write', 'content']);
-        console.log(content);
         const params = {
             'author': 'author',
             'title': state.getIn(['write', 'title']),
