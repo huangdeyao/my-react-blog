@@ -1,9 +1,8 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {ContainerBtn, ContainerFixed, NavItem, WriteHome} from './style';
+import {WriteHome} from './style';
 import RichEditor from './common/RichEditor';
 import {actionCreators as writeActionCreators} from "./store";
-import {Tooltip} from 'antd';
 import ReleaseArtile from './common/ReleaseModal';
 import {Redirect, withRouter} from 'react-router-dom';
 
@@ -11,29 +10,11 @@ import {Redirect, withRouter} from 'react-router-dom';
 class Index extends PureComponent {
     render() {
         const {releaseArticle, release, articleId,loginStatus} = this.props;
-        // console.log("==>" + loginStatus);
         // if (loginStatus) {
             if (!release) {
                 return (
                     <WriteHome>
                         <RichEditor/>
-                        {/*<ContainerFixed>*/}
-                            {/*<ContainerBtn>*/}
-                                {/*<Tooltip placement="right" title="保存">*/}
-                                    {/*<NavItem*/}
-                                        {/*onClick={releaseArticle}>*/}
-                                        {/*<i className="iconfont">&#xe62f;</i>*/}
-                                    {/*</NavItem>*/}
-                                {/*</Tooltip>*/}
-                                {/*<ReleaseArtile/>*/}
-                                {/*<Tooltip placement="right" title="保存">*/}
-                                    {/*<NavItem><i className="iconfont">&#xe6c4;</i></NavItem>*/}
-                                {/*</Tooltip>*/}
-                                {/*<Tooltip placement="right" title="预览">*/}
-                                    {/*<NavItem><i className="iconfont">&#xe613;</i></NavItem>*/}
-                                {/*</Tooltip>*/}
-                            {/*</ContainerBtn>*/}
-                        {/*</ContainerFixed>*/}
                     </WriteHome>
                 )
             } else {

@@ -7,7 +7,7 @@ import {actionCreators as writeActionCreators} from './../../../pages/write/stor
 
 class WriteTags extends PureComponent {
     render() {
-        const {tagsList, handleTagBtn,tagName,handleOk,mState} = this.props;
+        const {tagsList, handleTagBtn, handleOk, mState} = this.props;
         return (
             <TagContiner>
                 <TagsBtn>
@@ -22,13 +22,13 @@ class WriteTags extends PureComponent {
                         ))
                     }
                 </TagsBtn>
-                <Button type="primary" block  onClick={() => handleOk(mState)}>确认并发布</Button>
+                <Button type="primary" block onClick={() => handleOk(mState)}>确认并发布</Button>
             </TagContiner>
         )
     }
 
     componentDidMount() {
-        if(this.props.tagsList == null){
+        if (this.props.tagsList.size === 0) {
             this.props.tagsData();
         }
     };
