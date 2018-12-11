@@ -1,11 +1,9 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux';
-import {actionCreators} from './../store';
 import {
     DetailMain,
     DetailAuthor,
     AuthorInfo,
-    ArticleImage,
     DetaliHeader
 } from './../style';
 

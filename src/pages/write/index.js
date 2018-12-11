@@ -3,13 +3,12 @@ import {connect} from 'react-redux';
 import {WriteHome} from './style';
 import RichEditor from './common/RichEditor';
 import {actionCreators as writeActionCreators} from "./store";
-import ReleaseArtile from './common/ReleaseModal';
 import {Redirect, withRouter} from 'react-router-dom';
 
 
 class Index extends PureComponent {
     render() {
-        const {releaseArticle, release, articleId,loginStatus} = this.props;
+        const {release, articleId} = this.props;
         // if (loginStatus) {
             if (!release) {
                 return (
@@ -20,7 +19,7 @@ class Index extends PureComponent {
             } else {
                 return <Redirect to={'/detail/' + articleId}/>
             }
-        // }else {
+        // }else {releaseArticle
         //     return <Redirect to='/login'/>
         // }
     }

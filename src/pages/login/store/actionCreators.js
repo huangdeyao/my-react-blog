@@ -2,10 +2,10 @@ import {constants} from './index';
 import axios from 'axios';
 import login from './../../../api/config';
 
-const changeLogin = () => ({
-    type: constants.CHANGE_LOGIN,
-    value: true
-});
+// const changeLogin = () => ({
+//     type: constants.CHANGE_LOGIN,
+//     value: true
+// });
 
 export const loginOut = () => ({
     type: constants.LOGIN_OUT,

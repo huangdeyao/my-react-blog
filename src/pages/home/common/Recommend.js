@@ -1,11 +1,11 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {RecommendWrapper, RecommendItem} from '../style';
+import {RecommendWrapper} from '../style';
 
 
 class Recommend extends PureComponent {
     render() {
-        const {recommendList} = this.props;
+        // const {recommendList} = this.props;
         return (
             <RecommendWrapper>
                 {
