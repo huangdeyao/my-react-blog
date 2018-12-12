@@ -1,13 +1,24 @@
 import styled from 'styled-components';
 
+
+
 export const LoginWrapper = styled.div`
-  width: 450px;
-  margin: 50px auto;
-  background: #fff;
-  padding: 50px 20px;
-  text-align: center;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 5px #ddd;
+    background-color:#E9F0F5;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+`;
+
+export const LoginContent = styled.div`
+    position: absolute;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    width: 320px;
+    padding: 30px 30px 0 30px;
+    transform: translate(-50%,-60%);
+    box-shadow: 0 0 10px 2px rgba(40, 138, 204, 0.16);
+    border-radius: 3px;
 `;
 
 export const Input = styled.input`

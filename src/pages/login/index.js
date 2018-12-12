@@ -1,27 +1,45 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {actionCreators} from './store';
-import {Redirect} from 'react-router-dom';
+import Particles from 'react-particles-js';
+import {particles} from './params';
+import {Input, Icon, Form} from 'antd';
 import {
     LoginWrapper,
-    Input,
-    Button,
-} from './style';
+    LoginContent
+} from "./style";
+
+const FormItem = Form.Item;
 
 class Login extends PureComponent {
+
+    handleSubmit = e => {
+        e.preventDefault();
+        const {active, type} = this.state;
+        const {form, onSubmit} = this.props;
+        const activeFileds = active[type];
+        form.validateFields(activeFileds, {force: true}, (err, values) => {
+            onSubmit(err, values);
+        });
+    };
+
+
     render() {
-        const {handleLogin, loginStatus} = this.props;
-        if (!loginStatus) {
-            return (
-                <LoginWrapper>
-                    <Input placeholder='输入用户名' innerRef={(input) => this.name = input}/>
-                    <Input placeholder='输入密码' type='password' innerRef={(input) => this.password = input}/>
-                    <Button onClick={() => handleLogin(this.name, this.password)}>登录</Button>
-                </LoginWrapper>
-            )
-        } else {
-            return <Redirect to='/'/>
-        }
+        return (
+            <LoginWrapper>
+                <Particles params={{particles}} style={{width: '100%', height: '100%'}}/>
+                <LoginContent>
+                    <Form onSubmit={this.handleSubmit}>
+                        <FormItem>
+                            <Input
+                                placeholder="User"
+                                prefix={<Icon style={{color: 'rgba(0,0,0,.25)'}} type="user"/>}
+                            />
+                        </FormItem>
+                    </Form>
+                </LoginContent>
+            </LoginWrapper>
+        )
     }
 }
 
