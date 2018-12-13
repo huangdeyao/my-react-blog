@@ -4,10 +4,13 @@ import {
     DetailMain,
     DetailAuthor,
     AuthorInfo,
-    DetaliHeader
+    DetaliHeader,
+    ArticleContext
 } from './../style';
 
-
+const context ={
+    with: '100%'
+};
 class ArticleDetail extends PureComponent {
     render() {
         const detail = this.props.detail.toJSON();
@@ -23,7 +26,7 @@ class ArticleDetail extends PureComponent {
                     </AuthorInfo>
                 </DetailAuthor>
                 <DetaliHeader>{detail.title}</DetaliHeader>
-                    <div dangerouslySetInnerHTML={{__html: detail.content}}/>
+                    <ArticleContext style={context} dangerouslySetInnerHTML={{__html: detail.content}}/>
             </DetailMain>
         )
     }

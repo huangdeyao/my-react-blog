@@ -43,6 +43,12 @@ export const DetaliHeader = styled.h1`
   margin: 50px 0 20px 0;
 `;
 
+export const ArticleContext = styled.div`
+    img {
+        width: 100%;
+    }
+`;
+
 export const DetailAuthor = styled.div`
   margin-bottom: 30px;
   .avatar {
