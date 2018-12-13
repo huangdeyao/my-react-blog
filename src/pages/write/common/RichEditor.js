@@ -15,7 +15,7 @@ class RichEditor extends Component {
                     <TextareaInput placeholder="请输入标题（最多 50 个字）" onChange={titleHandleChange}/>
                 </WriteIndexTitleInput>
                 <BraftEditor
-                    contentStyle={{height: 'auto', minHeight: 600}}
+                    contentStyle={{minHeight: 600}}
                     value={content}
                     onChange={handleChange}
                     media={{uploadFn: myUploadFn}}
@@ -35,7 +35,7 @@ const myUploadFn = (param) => {
         // 假设服务端直接返回文件上传后的地址
         // 上传成功后调用param.success并传入上传后的文件地址
         const data = JSON.parse(response.currentTarget.responseText);
-        console.log(data.data.imageUrl);
+        console.log(data.data);
         param.success({
             url: data.data.imageUrl
         })
