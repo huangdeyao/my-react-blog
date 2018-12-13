@@ -4,6 +4,7 @@ import anIcon from '../../../statics/2.jpeg';
 
 const defaultState = fromJS({
     login: false,
+    token: '1312312312312312',
     imgUrl: anIcon
 });
 

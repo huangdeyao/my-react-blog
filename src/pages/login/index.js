@@ -79,8 +79,8 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch) => ({
     handleLogin(name, password) {
         window.localStorage.setItem('token',"1234567890");
-        // dispatch(actionCreators.loginAccount(name.value, password.value))
-        window.location.href = '/';
+        dispatch(actionCreators.loginAccount(name.value, password.value))
+        // window.location.href = '/';
     }
 });
 
