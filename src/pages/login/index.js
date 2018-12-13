@@ -1,46 +1,75 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actionCreators} from './store';
-import Particles from 'react-particles-js';
-import {particles} from './params';
-import {Input, Icon, Form} from 'antd';
+import logo from './../../statics/logo.png';
+import {
+    Form, Input, Button, Icon
+} from 'antd';
 import {
     LoginWrapper,
-    LoginContent
+    LoginContent,
+    LoginLogoWrapper,
+    LoginAside,
+    LoginOther
 } from "./style";
 
 const FormItem = Form.Item;
 
-class Login extends PureComponent {
-
-    handleSubmit = e => {
-        e.preventDefault();
-        const {active, type} = this.state;
-        const {form, onSubmit} = this.props;
-        const activeFileds = active[type];
-        form.validateFields(activeFileds, {force: true}, (err, values) => {
-            onSubmit(err, values);
-        });
-    };
-
-
+class Login extends Component {
     render() {
+        const {getFieldDecorator} = this.props.form;
         return (
             <LoginWrapper>
-                <Particles params={{particles}} style={{width: '100%', height: '100%'}}/>
                 <LoginContent>
-                    <Form onSubmit={this.handleSubmit}>
+                    <LoginLogoWrapper>
+                        <img className='login-img' src={logo} alt="logo"/>
+                        <p className='login-p'>时光荏苒,初心依然</p>
+                    </LoginLogoWrapper>
+                    <Form style={{padding: '0 40px'}} onSubmit={this.handleSubmit}>
                         <FormItem>
-                            <Input
-                                placeholder="User"
-                                prefix={<Icon style={{color: 'rgba(0,0,0,.25)'}} type="user"/>}
-                            />
+                            {getFieldDecorator('userName', {
+                                rules: [{required: true, message: 'Please input your username!'}],
+                            })(
+                                <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                       placeholder="Username"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('password', {
+                                rules: [{required: true, message: 'Please input your Password!'}],
+                            })(
+                                <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
+                                       placeholder="Password"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            <LoginAside>
+                                <span>手机号登录</span>
+                                <a href="/">忘记密码</a>
+                            </LoginAside>
+                            <Button type="primary" style={{width: '100%', marginBottom: '20px'}} htmlType="submit"
+                                    className="login-form-button">登录</Button>
                         </FormItem>
                     </Form>
+                    <LoginOther>
+                        <div>其他登录
+                            <i className="iconfont">&#xe6d6;</i>
+                        </div>
+                        <a href="/">注册</a>
+                    </LoginOther>
                 </LoginContent>
             </LoginWrapper>
         )
     }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                this.props.handleLogin(values.userName, values.password)
+            }
+        });
+    };
 }
 
 const mapState = (state) => ({
@@ -49,8 +78,10 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
     handleLogin(name, password) {
-        dispatch(actionCreators.loginAccount(name.value, password.value))
+        window.localStorage.setItem('token',"1234567890");
+        // dispatch(actionCreators.loginAccount(name.value, password.value))
+        window.location.href = '/';
     }
 });
 
-export default connect(mapState, mapDispatch)(Login);
+export default connect(mapState, mapDispatch)(Form.create()(Login));

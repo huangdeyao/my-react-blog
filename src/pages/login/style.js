@@ -1,53 +1,69 @@
 import styled from 'styled-components';
-
-
+import signBg from './../../statics/images/sign_bg.jpg';
 
 export const LoginWrapper = styled.div`
-    background-color:#E9F0F5;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
+    background: url(${signBg}) no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    padding-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const LoginContent = styled.div`
-    position: absolute;
-    background-color: #fff;
-    left: 50%;
-    top: 50%;
-    width: 320px;
-    padding: 30px 30px 0 30px;
-    transform: translate(-50%,-60%);
-    box-shadow: 0 0 10px 2px rgba(40, 138, 204, 0.16);
-    border-radius: 3px;
+    width: 432px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    box-sizing: border-box;
 `;
 
-export const Input = styled.input`
-  display: block;
-  font-size: 14px;
-  padding: 8px 10px;
-  width: 350px;
-  border: 1px solid #ddd;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  outline: none;
-  box-sizing: border-box;
+export const LoginLogoWrapper = styled.div`
+    text-align: center;
+    .login-img {
+        width: 100px;
+        margin: 30px 0 0;
+    }
+    .login-p {
+        text-align: center;
+        margin-top: 8px;
+        color: #0084ff;
+        font-size: 22px;
+    }
 `;
 
-export const Button = styled.button`
-  display: block;
-  font-size: 14px;
-  width: 350px;
-  margin: 0 auto;
-  padding: 5px 0;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #3194d0;
-  box-sizing: border-box;
-  &:hover {
-    background: #187cb7;
-    cursor: pointer;
-  }
+export const LoginAside = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 5px;
+`;
+
+export const LoginOther = styled.div`
+    padding: 0 40px;
+    background-color: #f6f6f6;
+    height: 58px;
+    line-height: 58px;
+    border-top: 1px solid #ebebeb;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .iconfont {
+        margin-left: 12px;
+        cursor: pointer;
+        font-family: "iconfont" !important;
+        font-size: 22px;
+        font-style: normal;
+        color: #8a8a8a;
+        :hover{
+            color:#0084ff!important;      
+        }
+     }
 `;

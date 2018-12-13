@@ -20,7 +20,7 @@ import {
 
 class Index extends Component {
     render() {
-        const {focused, handleInputFocus, handleInputBlur, login, imgUrl, loginOut} = this.props;
+        const {focused, handleInputFocus, handleInputBlur, login, imgUrl, loginOut, clearLocalStorage} = this.props;
         return (
             <AppHeader>
                 <AppHeaderInner>
@@ -45,7 +45,7 @@ class Index extends Component {
                         <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe614;</i>
                     </SearchWrapper>
                     <AppHeaderUserInfo>
-                        <NavItem><i className="iconfont">&#xe6d6;</i></NavItem>
+                        <NavItem onClick={clearLocalStorage}><i className="iconfont">&#xe6d6;</i></NavItem>
                         <NavItem><i className="iconfont">&#xe60a;</i></NavItem>
                         {
                             login ? <AppHeaderProfileEntry onClick={loginOut} imgUrl={imgUrl}/> :
@@ -76,6 +76,11 @@ const initMapDispatchToProps = (dispatch) => {
         },
         loginOut() {
             dispatch(loginActionCreators.loginOut());
+        },
+        clearLocalStorage() {
+            // window.localStorage.setItem('token',"");
+            window.localStorage.clear();
+            console.log('=====>'+ window.localStorage.getItem('token'));
         }
     }
 };

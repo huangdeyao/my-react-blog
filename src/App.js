@@ -17,7 +17,7 @@ class App extends Component {
                 console.log('login==login');
                 window.location.href = '#/login'
             }else {
-                console.log('login==login');
+                console.log('login==login'+ localStorage.getItem('token'));
             }
         }
     }

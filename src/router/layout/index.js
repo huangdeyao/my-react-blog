@@ -4,6 +4,7 @@ import Header from '../../common/header';
 import Home from '../../pages/home';
 import Detail from '../../pages/detail/loadableComponent';
 import Write from '../../pages/write';
+import { Layout } from 'antd'
 
 class Index extends PureComponent {
     componentWillMount() {
@@ -11,12 +12,12 @@ class Index extends PureComponent {
 
     render() {
         return (
-            <Switch>
+            <Layout>
                 <Header/>
                 <Route path='/' exact component={Home}/>
                 <Route path='/detail/:id' exact component={Detail}/>
                 <Route path='/write' exact component={Write}/>
-            </Switch>
+            </Layout>
         )
     }
 }
