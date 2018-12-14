@@ -70,7 +70,7 @@ class Login extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                this.props.handleLogin(values.userName, values.password)
+                this.props.handleLogin(values)
             }
         });
     };
@@ -81,10 +81,8 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-    handleLogin(name, password) {
-        window.localStorage.setItem('token',"1234567890");
-        dispatch(actionCreators.loginAccount(name.value, password.value))
-        // window.location.href = '/';
+    handleLogin(values) {
+        dispatch(actionCreators.loginAccount(values))
     }
 });
 

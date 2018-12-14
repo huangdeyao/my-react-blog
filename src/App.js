@@ -13,11 +13,11 @@ class App extends Component {
         // console.log(localStorage.getItem('token'));
         // console.log('*****************************************************');
         window.onhashchange = () => {
-            if (localStorage.getItem('token') === null) {
+            if (localStorage.getItem('access_token') === null) {
                 console.log('login==login');
                 window.location.href = '#/login'
             }else {
-                console.log('login==login'+ localStorage.getItem('token'));
+                console.log('login==login'+ localStorage.getItem('access_token'));
             }
         }
     }
