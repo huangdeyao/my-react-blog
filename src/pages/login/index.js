@@ -53,7 +53,11 @@ class Login extends Component {
                     </Form>
                     <LoginOther>
                         <div>其他登录
-                            <i className="iconfont">&#xe6d6;</i>
+                            <i className="iconfont">&#xe652;</i>
+                            <i className="iconfont">&#xe65c;</i>
+                            <i className="iconfont">&#xe64e;</i>
+                            <i className="iconfont">&#xe679;</i>
+                            <i className="iconfont">&#xe601;</i>
                         </div>
                         <a href="/">注册</a>
                     </LoginOther>
