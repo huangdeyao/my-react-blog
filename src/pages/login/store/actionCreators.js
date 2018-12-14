@@ -14,14 +14,17 @@ export const loginOut = () => ({
 export const loginAccount = (values) => {
     return () => {
         let params = new URLSearchParams();
-        console.log(values.userName + "-" + values.password);
+
+        window.localStorage.setItem("access_token", null);
+        window.localStorage.setItem("refresh_token", null);
+
         params.append('username', values.userName);
         params.append('password', values.password);
         params.append('grant_type', 'password');
         userLogin(params).then(res => {
-            if(res.status === 200){
-                window.localStorage.setItem("access_token",res.data.access_token);
-                window.localStorage.setItem("refresh_token",res.data.refresh_token);
+            if (res.status === 200) {
+                window.localStorage.setItem("access_token", res.data.access_token);
+                window.localStorage.setItem("refresh_token", res.data.refresh_token);
                 window.location.href = '/'
             }
         }).catch(reason => {
