@@ -15,7 +15,6 @@ Util.getMenuList = function (data) {
       menuList.push(item)
     }
   })
-  console.log(menuList)
   return menuList
 }
 

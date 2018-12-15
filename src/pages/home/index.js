@@ -27,8 +27,6 @@ const renderTabBar = (props, DefaultTabBar) => (
 class Index extends PureComponent {
     render() {
         const {tagsList} = this.props;
-        console.log("********************************");
-        console.log(tagsList);
         return (
             <HomeWrapper>
                 <HomeLeft>

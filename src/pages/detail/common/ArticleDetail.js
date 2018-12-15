@@ -14,7 +14,6 @@ const context ={
 class ArticleDetail extends PureComponent {
     render() {
         const detail = this.props.detail.toJSON();
-        console.log(detail);
         return (
             <DetailMain>
                 <DetailAuthor>

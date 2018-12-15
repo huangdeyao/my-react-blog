@@ -3,15 +3,12 @@ import {connect} from 'react-redux';
 import {actionCreators} from "../store";
 import {Link} from 'react-router-dom';
 import {ItemContainer, ItemTitle, ItemInfo, ItemImage, ItemDes, ItemTools, ItemToolslike, LoadMore} from '../style';
-import {getAllArticle} from "../../../api/api";
 
 class HomeList extends PureComponent {
 
     render() {
         const {articleList, getMoreList, page} = this.props;
         const detail = articleList.toJSON();
-        console.log("==========================");
-        console.log(detail);
         return (
             <div>
                 {

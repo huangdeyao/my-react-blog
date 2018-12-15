@@ -27,13 +27,15 @@ axios.interceptors.response.use(
     },
     error => {
         if (error && error.response) {
-            console.log('-----status-------->' + error.response.status);
             switch (error.response.status) {
                 case 400:
                     error.message = '请求错误';
                     break;
                 case 401:
                     error.message = '未授权，请登录';
+                    window.localStorage.setItem("access_token", null);
+                    window.localStorage.setItem("refresh_token", null);
+                    window.location.href = '#/login';
                     break;
                 case 403:
                     error.message = '拒绝访问';
@@ -66,8 +68,6 @@ axios.interceptors.response.use(
             }
         } else {
             error.message = '服务器出错';
-            console.log(error);
-            console.log('********服务器出错********');
             window.location.href = '#/login'
         }
         return Promise.reject(error)

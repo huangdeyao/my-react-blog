@@ -17,7 +17,6 @@ export const getTagsData = () => {
     return (dispatch) => {
         getAllArticleTags().then(res => {
             if (res.status === 200) {
-                console.log(res.data.data);
                 const result = res.data.data;
                 dispatch(tagsData(result));
             }

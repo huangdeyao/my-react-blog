@@ -1,6 +1,5 @@
-import axios from 'axios';
 import * as constants from './constants';
-import uploadUrl from "../../../api/config";
+import {getArticleDetails} from './../../../api/api'
 
 const changeDetail = (data) => ({
     type: constants.CHANGE_DETAIL,
@@ -8,9 +7,15 @@ const changeDetail = (data) => ({
 });
 export const getDetail = (id) => {
     return (dispatch) => {
-        axios.get(uploadUrl.article_get_details + id).then((res) => {
-            const result = res.data;
-            dispatch(changeDetail(result.data));
+        const params = new URLSearchParams();
+        params.append('id', id);
+        getArticleDetails(params).then(res => {
+            if (res.status === 200) {
+                const result = res.data.data;
+                dispatch(changeDetail(result));
+            }
+        }).catch(reason => {
+            console.log(reason)
         })
     }
 };

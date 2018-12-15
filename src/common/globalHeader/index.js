@@ -78,9 +78,7 @@ const initMapDispatchToProps = (dispatch) => {
             dispatch(loginActionCreators.loginOut());
         },
         clearLocalStorage() {
-            // window.localStorage.setItem('token',"");
             window.localStorage.clear();
-            console.log('=====>'+ window.localStorage.getItem('token'));
         }
     }
 };
