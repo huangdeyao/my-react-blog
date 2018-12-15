@@ -1,7 +1,6 @@
-import axios from "axios/index";
 import {constants} from './index';
 import {fromJS} from 'immutable';
-import homeList from './../../../api/config';
+import {getAllArticle} from './../../../api/api'
 
 const changeHomeData = (result) => ({
     type: constants.CHANGE_HOME_DATA,
@@ -21,21 +20,26 @@ export const toggleTopShow = (show) => ({
     show
 });
 
-export const getHomeInfo = () => {
+export const getHomeInfo = (page) => {
     return (dispatch) => {
-        axios.get(homeList.article_get_all).then((res) => {
-            const result = res.data.data;
-            dispatch(changeHomeData(result));
+        const params = new URLSearchParams();
+        params.append('pageNo', page);
+        params.append('pageSize', 5);
+
+        getAllArticle(params).then(res => {
+            if (res.status === 200) {
+                const result = res.data.data;
+                if (page === 0) {
+                    dispatch(changeHomeData(result));
+                } else {
+                    dispatch(addHomeList(result.content, page + 1));
+                }
+            }
+        }).catch(reason => {
+            console.log("异常信息");
+            console.log(reason);
         });
     }
 };
 
-export const getMoreList = (page) => {
-    return (dispatch) => {
-        axios.get('/api/homeList.json?page=' + page).then((res) => {
-            const result = res.data.data;
-            dispatch(addHomeList(result, page + 1));
-        });
-    }
-};
 

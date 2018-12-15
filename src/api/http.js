@@ -10,9 +10,10 @@ axios.interceptors.request.use(
         if (Util.isEmpty(token)) {
             config.auth = {username: 'article-client', password: 'article-secret'};
             config.headers = {'Content-type': 'application/x-www-form-urlencoded; charset=utf-8'}
-        } else {
-            config.headers = {'Content-type': 'application/json; charset=utf-8'};
         }
+        // else {
+        //     config.headers = {'Content-type': 'application/json; charset=utf-8'};
+        // }
 
         return config
     },
@@ -74,13 +75,17 @@ axios.interceptors.response.use(
 );
 
 export default {
-    fetchGet (url, params = {}) {
+    fetchGet(url) {
         const token = localStorage.getItem('access_token');
         if (token !== '') {
-            url = url + '?access_token=' + token
+            if (url.indexOf("?") !== -1) {
+                url = url + '&access_token=' + token
+            } else {
+                url = url + '?access_token=' + token
+            }
         }
         return new Promise((resolve, reject) => {
-            axios.get(url, params).then(res => {
+            axios.get(url).then(res => {
                 resolve(res.data)
             }).catch(error => {
                 console.log(error);
@@ -88,7 +93,7 @@ export default {
             })
         })
     },
-    fetchPost (url, params = {}) {
+    fetchPost(url, params = {}) {
         const token = localStorage.getItem('access_token');
         if (!Util.isEmpty(token)) {
             url = url + '?access_token=' + token

@@ -27,6 +27,8 @@ const renderTabBar = (props, DefaultTabBar) => (
 class Index extends PureComponent {
     render() {
         const {tagsList} = this.props;
+        console.log("********************************");
+        console.log(tagsList);
         return (
             <HomeWrapper>
                 <HomeLeft>
@@ -68,8 +70,8 @@ const mapState = (state) => ({
 });
 const mapDispatch = (dispatch) => ({
     changeHomeData() {
-        dispatch(headerActionCreators.getTagsData())
-        dispatch(actionCreators.getHomeInfo())
+        dispatch(headerActionCreators.getTagsData());
+        dispatch(actionCreators.getHomeInfo(0))
     },
     changeScrollShow() {
         if (document.documentElement.scrollTop > 150) {

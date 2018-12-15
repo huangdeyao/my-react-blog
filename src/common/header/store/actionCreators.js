@@ -1,6 +1,5 @@
 import {constants} from './index'
-import homeList from "../../../api/config";
-import axios from "axios/index";
+import {getAllArticleTags} from './../../../api/api'
 
 export const searchFocus = () => ({
     type: constants.SEARCH_FOCUS
@@ -16,14 +15,19 @@ export const tagsData = (result) => ({
 
 export const getTagsData = () => {
     return (dispatch) => {
-        axios.get(homeList.article_get_tags).then((res) => {
-            const result = res.data.data;
-            dispatch(tagsData(result));
-        });
+        getAllArticleTags().then(res => {
+            if (res.status === 200) {
+                console.log(res.data.data);
+                const result = res.data.data;
+                dispatch(tagsData(result));
+            }
+        }).catch(reason => {
+            console.log("请求异常")
+        })
     }
 };
 
-export const handleTagBtn=(tagName)=>({
+export const handleTagBtn = (tagName) => ({
     type: constants.TAGS_VALUE,
     tagName: tagName
 });
