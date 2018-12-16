@@ -11,13 +11,16 @@ export const loginOut = () => ({
     value: false
 });
 
+export const handleChangeLoading = (loading) => ({
+    type: constants.HANDLE_CHANGE_LOADING,
+    value: loading
+});
+
 export const loginAccount = (values) => {
     return () => {
         let params = new URLSearchParams();
-
         window.localStorage.setItem("access_token", null);
         window.localStorage.setItem("refresh_token", null);
-
         params.append('username', values.userName);
         params.append('password', values.password);
         params.append('grant_type', 'password');

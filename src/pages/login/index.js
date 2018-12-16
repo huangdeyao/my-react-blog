@@ -16,6 +16,7 @@ import {
 const FormItem = Form.Item;
 
 class Login extends Component {
+
     render() {
         const {getFieldDecorator} = this.props.form;
         return (
@@ -38,7 +39,8 @@ class Login extends Component {
                             {getFieldDecorator('password', {
                                 rules: [{required: true, message: 'Please input your Password!'}],
                             })(
-                                <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
+                                <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                       type="password"
                                        placeholder="Password"/>
                             )}
                         </FormItem>
@@ -70,19 +72,23 @@ class Login extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                this.props.handleLogin(values)
+                this.props.handleLogin(values);
             }
         });
     };
 }
 
 const mapState = (state) => ({
-    loginStatus: state.getIn(['login', 'login'])
+    loginStatus: state.getIn(['login', 'login']),
+    loading: state.getIn(['login', 'loading'])
 });
 
 const mapDispatch = (dispatch) => ({
     handleLogin(values) {
         dispatch(actionCreators.loginAccount(values))
+    },
+    handleChangeLoading(loading) {
+        dispatch(actionCreators.handleChangeLoading(loading))
     }
 });
 
