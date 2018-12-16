@@ -26,8 +26,7 @@ class RichEditor extends Component {
 }
 
 const myUploadFn = (param) => {
-    const token = localStorage.getItem('access_token');
-    const serverURL = UploadUrl.article_homepage_image_upload + '?access_token=' + token;
+    const serverURL = UploadUrl.article_homepage_image_upload;
     const xhr = new XMLHttpRequest();
     const fd = new FormData();
 

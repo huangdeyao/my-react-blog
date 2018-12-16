@@ -1,9 +1,7 @@
 import {constants} from './index';
 import {message} from 'antd';
-import ArticleAdd from "../../../api/config";
 import {Buffer} from "buffer";
-import axios from "axios";
-
+import {addArticle} from './../../../api/api'
 
 export const handleOk = (state) => {
 
@@ -18,12 +16,21 @@ export const handleOk = (state) => {
             'likes': 12,
             'tag': state.getIn(['header', 'tagName'])
         };
-        axios.post(ArticleAdd.article_add, params).then(res => {
-            const result = res.data.data;
-            dispatch(isHandleOk(result.id));
-        }).catch(error => {
-            console.log(error);
+        addArticle(params).then(res => {
+            console.log(res);
+            if(res.status === 200){
+                const result = res.data.data;
+                dispatch(isHandleOk(result.id));
+            }
+        }).catch(reason => {
+            console.log(reason)
         });
+        // axios.post(ArticleAdd.article_add, params).then(res => {
+        //     const result = res.data.data;
+        //     dispatch(isHandleOk(result.id));
+        // }).catch(error => {
+        //     console.log(error);
+        // });
     }
 };
 

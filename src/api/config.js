@@ -5,13 +5,14 @@
  **/
 
 const HOST = 'http://article.yrclubs.com';
+const token = localStorage.getItem('access_token');
 const URL = {
     //获取所有文章
     article_get_all: HOST + '/storage/api/get/all/article',
     //新增
     article_add: HOST + '/storage/api/add/article',
     // 文章上传
-    article_homepage_image_upload: HOST + '/storage/api/image/upload',
+    article_homepage_image_upload: HOST + '/storage/api/image/upload?access_token=' + token,
     // 文章上传
     article_get_details: HOST + '/storage/api/get/article/details?id=',
     // 获取标签
