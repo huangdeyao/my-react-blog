@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {actionCreators} from '../header/store';
 import {actionCreators as loginActionCreators} from './../../pages/login/store';
-import anIcon from '../../statics/anonymous.jpg';
+import Profile from './common/profile';
+
 import {
     AppHeader,
     AppHeaderInner,
@@ -14,13 +15,12 @@ import {
     SearchWrapper,
     NavSearch,
     AppHeaderUserInfo,
-    NavItem,
-    AppHeaderProfileEntry
+    NavItem
 } from "./style";
 
 class Index extends Component {
     render() {
-        const {focused, handleInputFocus, handleInputBlur, login, imgUrl, loginOut, clearLocalStorage} = this.props;
+        const {focused, handleInputFocus, handleInputBlur, clearLocalStorage} = this.props;
         return (
             <AppHeader>
                 <AppHeaderInner>
@@ -47,10 +47,7 @@ class Index extends Component {
                     <AppHeaderUserInfo>
                         <NavItem onClick={clearLocalStorage}><i className="iconfont">&#xe6d6;</i></NavItem>
                         <NavItem><i className="iconfont">&#xe60a;</i></NavItem>
-                        {
-                            login ? <AppHeaderProfileEntry onClick={loginOut} imgUrl={imgUrl}/> :
-                                <Link to='/login'><AppHeaderProfileEntry imgUrl={anIcon}/></Link>
-                        }
+                        <Profile/>
                     </AppHeaderUserInfo>
                 </AppHeaderInner>
             </AppHeader>
