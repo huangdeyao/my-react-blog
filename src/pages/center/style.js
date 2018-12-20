@@ -8,6 +8,13 @@ export const CenterWrapper = styled.div`
 export const CenterLeft = styled.div`
     float: right;
     width: 694px;
+    .tabsCard {
+  :global {
+    .ant-card-head {
+      padding: 0 16px;
+    }
+  }
+}
 `;
 
 
@@ -33,7 +40,30 @@ export const CenterDetail = styled.div`
     margin-top: 25px;
     margin-bottom: 8px;
     .iconfont {
-        font-style: normal;
         margin-right: 10px;
+    }
+`;
+
+export const CenterTeam = styled.div`
+    text-overflow: ellipsis;
+    .global-tag {
+        margin-bottom: 8px;
+    }
+    .row {
+        margin-top: 8px;
+    }
+    .avatar{
+        margin-right: 8px;
+    }
+    .team-text{
+        margin-top: 15px;
+        text-overflow:ellipsis;
+        overflow:hidden;
+        white-space:nowrap;
+        width:125px;
+    }
+    .tagsTitle {
+        font-weight: 500;
+        margin-bottom: 12px;
     }
 `;
