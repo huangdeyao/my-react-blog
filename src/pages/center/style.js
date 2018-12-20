@@ -41,6 +41,7 @@ export const CenterDetail = styled.div`
     margin-bottom: 8px;
     .iconfont {
         margin-right: 10px;
+        color:#0084ff!important;   
     }
 `;
 
