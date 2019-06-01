@@ -2,7 +2,7 @@ import axios from 'axios'
 import Util from './../util/util'
 // axios 配置
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://article.yrclubs.com';
+axios.defaults.baseURL = 'http://localhost:8766';
 
 axios.interceptors.request.use(
     config => {

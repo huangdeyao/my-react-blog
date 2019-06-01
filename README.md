@@ -1,23 +1,43 @@
 # my-react-blog
 
 #### 项目介绍
-react实现个人博客
+react实现个人博客，关于CSS我是渣渣，不太会
+
+样式我趴了[简书](https://www.jianshu.com/)和[知乎](www.zhihu.com)
+
+一些小的组件UI 用了蚂蚁金服的antd
+
+功能实现文章列表，写作，上传图片
+
+基于这个项目我做了一个使用vue 实现的个人小网站（https://www.yrclubs.com/home）
 
 #### 软件架构
 软件架构说明
 
 安装的依赖有:
-1、styled-components 
-地址：https://www.styled-components.com/
-安装：npm install --save styled-components
-
-npm install react-transition-group
-npm install redux
-npm install react-redux
-npm install immutable
-npm install redux-immutable
-npm install redux-thunk
-npm install axios
+```
+  "dependencies": {
+    "antd": "^3.10.2",
+    "axios": "^0.18.0",
+    "braft-editor": "^2.1.29",
+    "buffer": "^5.2.1",
+    "expose-loader": "^0.7.5",
+    "immutable": "^3.8.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "react-sticky": "^6.0.3",
+    "react-transition-group": "^2.4.0",
+    "redux": "^4.0.0",
+    "redux-immutable": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^3.4.6"
+  },
+  
+```
 
 #### 安装运行
 
@@ -26,27 +46,9 @@ npm install axios
 
 #### 使用说明
 
-1. xxxx
-2. xxxx
-3. xxxx
+需要启动后端服务
 
-#### 参与贡献
-
-雀羽
-https://www.yuque.com/margox/be/lzwpnr
-https://braft.margox.cn/demos/basic
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
-
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### 样式
+![图片](src/statics/login/1.png)
+![图片](src/statics/login/3.png)
+![图片](src/statics/login/123.png)
