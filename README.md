@@ -6,14 +6,15 @@
 
 [前端react](https://gitee.com/dy.huang/my-react-blog)
 
-[后端springcloud](https://gitee.com/dy.huang/article-service)
+GitHub：
 
-[后端springcloud](https://gitee.com/dy.huang/article-service)
+[前端react](https://github.com/huangdeyao/my-react-blog)
+
+[后端springcloud](https://github.com/huangdeyao/article-service)
 
 #### 项目介绍
-react实现个人博客，关于CSS我是渣渣，不太会
 
-样式我趴了[简书](https://www.jianshu.com/)和[知乎](www.zhihu.com)
+react实现个人博客，关于CSS我是渣渣，不太会，样式我趴了[简书](https://www.jianshu.com/)和[知乎](www.zhihu.com)
 
 一些小的组件UI 用了蚂蚁金服的antd
 
@@ -22,6 +23,7 @@ react实现个人博客，关于CSS我是渣渣，不太会
 基于这个项目我做了一个使用vue 实现的[个人小网站](https://www.yrclubs.com/home),样式基本类似，暂时未做开源
 
 #### 软件架构
+
 软件架构说明
 
 安装的依赖有:
