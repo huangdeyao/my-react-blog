@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.10.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "braft-editor": "^2.1.29",
     "buffer": "^5.2.1",
     "expose-loader": "^0.7.5",
